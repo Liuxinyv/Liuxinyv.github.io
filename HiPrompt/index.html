@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>DiffuseHigh: Training-free Progressive High-Resolution Image Synthesis through Structure Guidance</title>
+    <title>HiPrompt: Tuning-free Higher-Resolution Generation with Hierarchical MLLM Prompts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -44,22 +44,41 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">DiffuseHigh: Training-free Progressive High-Resolution Image Synthesis through Structure Guidance</h1>
+            <h1 class="title is-1 publication-title">>HiPrompt: Tuning-free Higher-Resolution Generation with Hierarchical MLLM Prompts</h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                Younghyun Kim<sup>1</sup><sup>*</sup>,</span>
+                Xinyu Liu<sup>1</sup>,</span>
               <span class="author-block">
-                Geunmin Hwang<sup>1</sup><sup>*</sup>,</span>
+                <a href="https://github.com/YingqingHe" target="_blank">Yingqing He</a><sup>1</sup>
               <span class="author-block">
-                Junyu Zhang<sup>2</sup>,</span>
+                <a href="https://guolanqing.github.io" target="_blank">Lanqing Guo</a><sup>2</sup>
               <span class="author-block">
-                <a href="https://silverbottlep.github.io/index.html">Eunbyung Park</a><sup>1,3</sup></span>
+                Xiang Li<sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://jxbbb.github.io/" target="_blank">Bu Jin</a><sup>4</sup>
+              <span class="author-block">
+                Peng Li<sup>1</sup>,</span>
+              <span class="author-block">
+                Yan Li<sup>1</sup>,</span>
+              <span class="author-block">
+                Chi-Min Chan<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://cqf.io/" target="_blank">Qifeng Chen</a><sup>1</sup>
+              <span class="author-block">
+                Wei Xue<sup>1</sup>,</span>
+              <span class="author-block">
+                Wenhan Luo<sup>1</sup>,</span>
+              <span class="author-block">
+                Qingfeng Liu<sup>1</sup>,</span>
+              <span class="author-block">
+               Yike Guo<sup>1</sup>,</span>
             </div>
 
             <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Department of Artificial Intelligence, Sungkyunkwan University,</span>
-              <span class="author-block"><sup>2</sup>School of Computer Science and Engineering, Central South University,</span>
-              <span class="author-block"><sup>3</sup>Department of Electrical and Computer Engineering, Sungkyunkwan University</span> <br>
+              <span class="author-block"><sup>1</sup>Hong Kong University of Science and Technology,</span>
+              <span class="author-block"><sup>2</sup>Nanyang Technological University,</span>
+              <span class="author-block"><sup>3</sup>Tsinhua University,</span>
+              <span class="author-block"><sup>4</sup>Chinese Academy of Sciences</span> <br>
             </div>
             <div class="column has-text-centered">
                 <div class="publication-links">
@@ -74,7 +93,7 @@
                     </span>
                     <!-- Code Link. -->
                     <span class="link-block">
-                    <a href="https://github.com/yhyun225/DiffuseHigh" 
+                    <a href="https://liuxinyv.github.io/HiPrompt/" 
                        class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                         <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
@@ -91,24 +110,12 @@
       </div>
   </section>
 <!-- --------------- original ------------------- -->
-  <!-- <section class="hero teaser">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-          <img src="./static/images/sdxl_4K_baby_bunny.png"
-          class="interpolation-image"\>
-        <h2 class="subtitle has-text-centered">
-          <p>Generated <font color="blue">4K</font> images with SDXL.</p>
-          <p><b>DiffuseHigh</b> enables pretrained diffusion models to generate higher resolution images.</p>
-        </h2>
-      </div>
-    </div>
-  </section> -->
 
 <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="content has-text-justified">
       <h3 class="title is-4">
-        <p>Generated <font color="646EFF">4K</font> images with DiffuseHigh + SDXL.</p>
+        <p>Generated <font color="646EFF">4K</font> images with HiPrompt + SDXL.</p>
       </h3>
       <!-- <h6 class="subtitle has-text-centered">
         <p>Generated <font color="646EFF">4K</font> images with DiffuseHigh + SDXL.</p>
@@ -162,29 +169,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-                Recent surge in large-scale generative models has spurred the development 
-                of vast fields in computer vision. 
-                In particular, text-to-image diffusion models have garnered widespread adoption 
-                across diverse domain due to their potential for high-fidelity image generation. 
-                Nonetheless, existing large-scale diffusion models are confined to 
-                generate images of up to 1K resolution, 
-                which is far from meeting the demands of contemporary commercial applications. 
-                Directly sampling higher-resolution images often yields results 
-                marred by artifacts such as object repetition and distorted shapes. 
-                Addressing the aforementioned issues typically necessitates 
-                training or fine-tuning models on higher resolution datasets. 
-                However, this undertaking poses a formidable challenge due to 
-                the difficulty in collecting large-scale high-resolution contents 
-                and substantial computational resources. 
-                While several preceding works have proposed alternatives, 
-                they often fail to produce convincing results. 
-                In this work, we probe the generative ability of diffusion models 
-                at higher resolution beyond its original capability and 
-                propose a novel progressive approach that fully utilizes 
-                generated low-resolution image to guide the generation of higher resolution image. 
-                Our method obviates the need for additional training or fine-tuning 
-                which significantly lowers the burden of computational costs. 
-                Extensive experiments and results validate the efficiency and efficacy of our method.
+              The potential for higher-resolution image generation using pretrained diffusion models is immense, yet these models often struggle with issues of object repetition and structural artifacts especially when scaling to 4K resolution and higher. We figure out that the problem is caused by that, a single prompt for the generation of multiple scales provides insufficient efficacy. In response, we propose HiPrompt, a new tuning-free solution that tackles the above problems by introducing hierarchical prompts. The hierarchical prompts offer both global and local guidance. Specifically, the global guidance comes from the user input that describes the overall content, while the local guidance utilizes patch-wise descriptions from MLLMs to elaborately guide the regional structure and texture generation. Furthermore, during the inverse denoising process, the generated noise is decomposed into low- and high-frequency spatial components. These components are conditioned on multiple prompt levels, including detailed patch-wise descriptions and broader image-level prompts, facilitating prompt-guided denoising under hierarchical semantic guidance. It further allows the generation to focus more on local spatial regions and ensures the generated images maintain coherent local and global semantics, structures, and textures with high definition. Extensive experiments demonstrate that HiPrompt outperforms state-of-the-art works in higher-resolution image generation, significantly reducing object repetition and enhancing structural quality.
             </p>
           </div>
         </div>
