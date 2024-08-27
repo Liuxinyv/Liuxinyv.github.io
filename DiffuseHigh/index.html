@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DiffuseHigh: Training-free Progressive High-Resolution Image Synthesis through Structure Guidance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">DiffuseHigh: Training-free Progressive High-Resolution Image Synthesis through Structure Guidance</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                Younghyun Kim<sup>1</sup><sup>*</sup>,</span>
+              <span class="author-block">
+                Geunmin Hwang<sup>1</sup><sup>*</sup>,</span>
+              <span class="author-block">
+                Junyu Zhang<sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://silverbottlep.github.io/index.html">Eunbyung Park</a><sup>1,3</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Department of Artificial Intelligence, Sungkyunkwan University,</span>
+              <span class="author-block"><sup>2</sup>School of Computer Science and Engineering, Central South University,</span>
+              <span class="author-block"><sup>3</sup>Department of Electrical and Computer Engineering, Sungkyunkwan University</span> <br>
+            </div>
+            <div class="column has-text-centered">
+                <div class="publication-links">
+                    <span class="link-block">
+                    <a href="https://arxiv.org/abs/2406.18459" 
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+                    </span>
+                    <span>arXiv</span>
+                    </a>
+                    </span>
+                    <!-- Code Link. -->
+                    <span class="link-block">
+                    <a href="https://github.com/yhyun225/DiffuseHigh" 
+                       class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                        <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                        </span>
+                        <span>Code</span>
+                    </a>
+                    </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+<!-- --------------- original ------------------- -->
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+          <img src="./static/images/sdxl_4K_baby_bunny.png"
+          class="interpolation-image"\>
+        <h2 class="subtitle has-text-centered">
+          <p>Generated <font color="blue">4K</font> images with SDXL.</p>
+          <p><b>DiffuseHigh</b> enables pretrained diffusion models to generate higher resolution images.</p>
+        </h2>
+      </div>
+    </div>
+  </section> -->
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="content has-text-justified">
+      <h3 class="title is-4">
+        <p>Generated <font color="646EFF">4K</font> images with DiffuseHigh + SDXL.</p>
+      </h3>
+      <!-- <h6 class="subtitle has-text-centered">
+        <p>Generated <font color="646EFF">4K</font> images with DiffuseHigh + SDXL.</p>
+        <p>We can make pretrained diffusion models to generate higher resolution images.</p>
+      </h6> -->
+
+      <div id="carousel" class="carousel is-max-desktop">
+        <!-- <div class="img-txt">
+          <img src="./static/images/sdxl_4K_coffee.png">
+          <p><i>"A steaming cup of coffee resting on a saucer, with wisps of steam curling upwards."</i></p>
+        </div> -->
+        <div class="img-txt">
+          <img src="./static/images/sdxl_4K_icecream.png">
+          <p><i>"Cinematic photo of delicious chocolate icecream."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/sdxl_4K_baby_bunny.png">
+          <p><i>"A baby bunny sitting on a stack of pancakes."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/sdxl_4K_magical_island.png">
+          <p><i>"A magical floating island in the sky, adorned with colorful hot air balloons and exotic flora."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/sdxl_4K_racoon.png">
+          <p><i>"Ninja racoon in cyberpunk, neonpunk style, photorealistic, 4K."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/sdxl_4K_miniature.png">
+          <p><i>"Miniature house with plants in the potted area, hyper realism, dramatic ambient lighting, high detail."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/sdxl_4K_roman.png">
+          <p><i>"Closeup Roman statue of aristoteles black and white made of marble, artstation award-winning, photorealistic."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/sdxl_4K_macarons.png">
+          <p><i>"A stack of colorful macarons arranged delicately on a pastel-colored cake stand."</i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+                Recent surge in large-scale generative models has spurred the development 
+                of vast fields in computer vision. 
+                In particular, text-to-image diffusion models have garnered widespread adoption 
+                across diverse domain due to their potential for high-fidelity image generation. 
+                Nonetheless, existing large-scale diffusion models are confined to 
+                generate images of up to 1K resolution, 
+                which is far from meeting the demands of contemporary commercial applications. 
+                Directly sampling higher-resolution images often yields results 
+                marred by artifacts such as object repetition and distorted shapes. 
+                Addressing the aforementioned issues typically necessitates 
+                training or fine-tuning models on higher resolution datasets. 
+                However, this undertaking poses a formidable challenge due to 
+                the difficulty in collecting large-scale high-resolution contents 
+                and substantial computational resources. 
+                While several preceding works have proposed alternatives, 
+                they often fail to produce convincing results. 
+                In this work, we probe the generative ability of diffusion models 
+                at higher resolution beyond its original capability and 
+                propose a novel progressive approach that fully utilizes 
+                generated low-resolution image to guide the generation of higher resolution image. 
+                Our method obviates the need for additional training or fine-tuning 
+                which significantly lowers the burden of computational costs. 
+                Extensive experiments and results validate the efficiency and efficacy of our method.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+<!-- Method -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">DiffuseHigh</h2>
+          <div class="content has-text-justified">
+            <div style="margin-top: 20px">
+              <img src="./static/images/main_figure.png">
+            </div>
+            <p align="justify">
+                Progressive approach frequently encounters challenges in 
+                effectively capturing certain structural properties and 
+                nuanced details from low-resolution inputs.
+                We hereby incorporate a Discrete Wavelet Transform (DWT)-based structure guidance 
+                into the proposed progressive pipeline. 
+                This method aims to enhance the fidelity of generated images by encouraging the 
+                preservation of crucial features from the low-resolution input.
+            </p>
+            </div>
+            <img src="./static/images/comparison_figure.png">
+            <p align="justify">
+                Comparison between DiffuseHigh without DWT and DiffuseHigh. 
+                As shown in the figure, (a) DiffuseHigh without DWT fails to generate realistic image, 
+                and shows artifacts as observed in the orange box. 
+                (b) DiffuseHigh without DWT generates black dots on the body of a teddy, 
+                and also fails to generate mouth. 
+                In contrast, in case of DiffuseHigh, structural property of the low resolution image 
+                successfully guide the object to have clean shape textures.
+            </p>
+          </div>
+        </div>
+      </div>
+    
+  </section>
+
+<section>
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">DWT Visualization</h2>
+      <div class="content has-text-justified">
+          <video poster="" id="" autoplay="" controls="" muted="" loop="false" playinline="">
+            <source src="./static/videos/dwt_visualization2.mp4" type="video/mp4">
+          </video>
+          <p align="justify">
+            We visualize the DWT components of predicted clean images corresponding to each
+            DDIM timesteps, for both progressive(W/O DWT) and DiffuseHigh(W/ DWT). 
+            As observed, in case of our proposed DiffuseHigh, a large amount of 
+            low-frequency components are preserved throughout the denoising process. 
+            These low-frequency components hold useful structural property, 
+            which leads DiffuseHigh to generate more convincible results, 
+            since we replace the low-frequency components obtained 
+            from the generated low-resolution image. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    @misc{kim2024diffusehightrainingfreeprogressivehighresolution,
+        title={DiffuseHigh: Training-free Progressive High-Resolution Image Synthesis through Structure Guidance}, 
+        author={Younghyun Kim and Geunmin Hwang and Eunbyung Park},
+        year={2024},
+        eprint={2406.18459},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2406.18459}, 
+      }
+    </code></pre>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/abs/2406.18459">
+          <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+        </a>
+        <a class="icon-link" href="https://github.com/yhyun225/DiffuseHigh" disabled="">
+          <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website borrowed template from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+</body></html>
