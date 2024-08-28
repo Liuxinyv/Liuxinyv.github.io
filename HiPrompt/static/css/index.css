@@ -412,6 +412,10 @@ border-left: 5px solid rgb(255, 180, 240);
   flex-wrap: wrap; /* 如果需要换行，可以添加这个 */
   gap: 10px; /* 图片间距 */
 }
-
+.img-txt-row {
+  flex: 1; /* 每个图文块平分空间 */
+  text-align: center; /* 图片和文字居中 */
+  max-width: 22%; /* 确保每个块不超出25%的宽度 */
+}
 .page {
 }
