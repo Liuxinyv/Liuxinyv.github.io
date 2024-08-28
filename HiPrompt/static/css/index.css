@@ -406,5 +406,12 @@ border-left: 5px solid rgb(255, 180, 240);
   width: 60vw;
   margin: auto;
 }
+.image-container {
+  display: flex;
+  justify-content: space-between; /* 在容器中均匀分布 */
+  flex-wrap: wrap; /* 如果需要换行，可以添加这个 */
+  gap: 10px; /* 图片间距 */
+}
+
 .page {
 }
