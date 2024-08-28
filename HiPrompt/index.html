@@ -200,7 +200,7 @@
             </p>
             </div>
             <!-- <img src="./static/images/comparison_figure.png"> -->
-            <p align="justify"> Generate an <b>image</b> of <i>“A panda is surfing in the universe” of resolution</i> <span style="color:#974EC3">1024 x 1024</span> 
+            <!-- <p align="justify"> Generate an <b>image</b> of <i>“A panda is surfing in the universe” of resolution</i> <span style="color:#974EC3">1024 x 1024</span> 
               using SD 2.1 trained on <span style="color:#974EC3">512 x 512</span></p>
             <table style="margin: 0 auto; width: 100%">
               <tr>
@@ -216,7 +216,7 @@
                 <td style="text-align: center; font-weight: 500; width: 25%;">5. <span style="font-weight: 1000;">Ours</span></td>
               </tr>
             </table>
-              <br>
+              <br> -->
           </div>
         </div>
       </div>
@@ -231,16 +231,23 @@
           <video poster="" id="" autoplay="" controls="" muted="" loop="false" playinline="">
             <source src="./static/videos/dwt_visualization2.mp4" type="video/mp4">
           </video>
-          <p align="justify">
-            We visualize the DWT components of predicted clean images corresponding to each
-            DDIM timesteps, for both progressive(W/O DWT) and DiffuseHigh(W/ DWT). 
-            As observed, in case of our proposed DiffuseHigh, a large amount of 
-            low-frequency components are preserved throughout the denoising process. 
-            These low-frequency components hold useful structural property, 
-            which leads DiffuseHigh to generate more convincible results, 
-            since we replace the low-frequency components obtained 
-            from the generated low-resolution image. 
-          </p>
+          <p align="justify"> Generate an <b>image</b> of <i>“A panda is surfing in the universe” of resolution</i> <span style="color:#974EC3">1024 x 1024</span> 
+            using SD 2.1 trained on <span style="color:#974EC3">512 x 512</span></p>
+          <table style="margin: 0 auto; width: 100%">
+            <tr>
+              <td style="width: 25%;"><img src="./static/images/multidif.png" alt="图片"></td>
+              <td style="width: 25%;"><img src="./static/images/scalecrafter.png" alt="图片"></td>
+              <td style="width: 25%;"><img src="./static/images/demofusion.png" alt="图片"></td>
+              <td style="width: 25%;"><img src="./static/images/HiPrompt.png" alt="图片"></td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: 500; width: 25%;">2. Scaling Attention <br>[Jin et al. 2023]</td>
+              <td style="text-align: center; font-weight: 500; width: 25%;">3. MultiDiffusion<br>[Bar-Tal et al. 2023]</td>
+              <td style="text-align: center; font-weight: 500; width: 25%;">4. SyncDiffusion<br>[Lee et al. 2023]</td>
+              <td style="text-align: center; font-weight: 500; width: 25%;">5. <span style="font-weight: 1000;">Ours</span></td>
+            </tr>
+          </table>
+            <br>
         </div>
       </div>
     </div>
