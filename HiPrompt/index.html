@@ -129,7 +129,7 @@
           <p><i>"A steaming cup of coffee resting on a saucer, with wisps of steam curling upwards."</i></p>
         </div> -->
         <div class="img-txt">
-          <img src="./static/images/img_4096_bird.png">
+          <img src="./static/images/img_4096_bird.jpg">
           <p><i>"Cinematic photo of delicious chocolate icecream."</i></p>
         </div>
         <div class="img-txt">
@@ -137,11 +137,11 @@
           <p><i>"A baby bunny sitting on a stack of pancakes."</i></p>
         </div>
         <div class="img-txt">
-          <img src="./static/images/img_4096_girl_color.png">
+          <img src="./static/images/img_4096_girl_color.jpg">
           <p><i>"A magical floating island in the sky, adorned with colorful hot air balloons and exotic flora."</i></p>
         </div>
         <div class="img-txt">
-          <img src="./static/images/img_4096_fox.png">
+          <img src="./static/images/img_4096_fox.jpg">
           <p><i>"Ninja racoon in cyberpunk, neonpunk style, photorealistic, 4K."</i></p>
         </div>
         <div class="img-txt">
@@ -149,7 +149,7 @@
           <p><i>"Miniature house with plants in the potted area, hyper realism, dramatic ambient lighting, high detail."</i></p>
         </div>
         <div class="img-txt">
-          <img src="./static/images/img_4096_lion.png">
+          <img src="./static/images/img_4096_lion.jpg">
           <p><i>"Closeup Roman statue of aristoteles black and white made of marble, artstation award-winning, photorealistic."</i></p>
         </div>
         <div class="img-txt">
@@ -191,15 +191,13 @@
               <img src="./static/images/main.png">
             </div>
             <p align="justify">
-                Progressive approach frequently encounters challenges in 
-                effectively capturing certain structural properties and 
-                nuanced details from low-resolution inputs.
-                We hereby incorporate a Discrete Wavelet Transform (DWT)-based structure guidance 
-                into the proposed progressive pipeline. 
-                This method aims to enhance the fidelity of generated images by encouraging the 
-                preservation of crucial features from the low-resolution input.
+              Given a low-resolution image, MLLMs are employed to generate
+              dense local descriptions for each overlapping local patch. To enhance the quality of these detailed prompts, we utilize N-grams
+              (n = 1) refinement to filter out irrelevant noise. Subsequently, HiPrompt decomposes the noisy image into low- and high-spatial
+              frequency components using low-pass and high-pass Gaussian filters. These components are denoised in parallel, conditioned
+              on the hierarchical prompts, and then summarized into final estimation during the inverse denoising process.
             </p>
-            </div>
+            <!-- </div>
             <img src="./static/images/comparison_figure.png">
             <p align="justify">
                 Comparison between DiffuseHigh without DWT and DiffuseHigh. 
@@ -210,7 +208,7 @@
                 In contrast, in case of DiffuseHigh, structural property of the low resolution image 
                 successfully guide the object to have clean shape textures.
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
     
