@@ -253,7 +253,7 @@ border-left: 5px solid rgb(255, 180, 240);
   justify-content: center;
   align-items: center;
   margin: auto;
-  width: 900px;
+  width: 750px;
   /* height: 1550px; */
   overflow: 2;
   flex-direction: column; 
