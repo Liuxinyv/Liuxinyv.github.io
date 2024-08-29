@@ -259,6 +259,17 @@ border-left: 5px solid rgb(255, 180, 240);
   flex-direction: column; 
   position: relative;
 }
+.carousel-img {
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 750px;
+  overflow: hidden;
+  flex-direction: column; 
+  position: relative;
+}
 
 .img-txt{
   padding: 130px;
