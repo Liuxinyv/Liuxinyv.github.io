@@ -251,7 +251,8 @@ border-left: 5px solid rgb(255, 180, 240);
   display: flex;
   place-items: center;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
+  align-items: flex-start;
   margin: auto;
   width: 750px;
   overflow: 2;
@@ -259,7 +260,7 @@ border-left: 5px solid rgb(255, 180, 240);
   position: relative;
 }
 .img-txt{
-  padding: 60px;
+  padding: 90px;
   /* padding: 130px; */
   text-align: center;
   margin: auto;
