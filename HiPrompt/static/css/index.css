@@ -422,3 +422,14 @@ border-left: 5px solid rgb(255, 180, 240);
 }
 .page {
 }
+.preview_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.preview_box {
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
