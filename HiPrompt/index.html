@@ -161,6 +161,154 @@
   </div>
 </section>
 
+<section class="section hero space-after">
+  <div class="container ">
+     <!-- <div class="columns has-text-centered"> -->
+        <!-- <div class="column is-four-fifths"> -->
+         <h2 class="title is-2">>> Interactive Comparison</h2>
+<v-app id="app" style="min-height: 0vh;">
+ <v-main>
+
+<!--             <v-container fluid>
+         <div class="video-container">
+             <div class="video-box">
+                 <video controls autoplay muted>
+                     <source src="videos-folder/14429083354_23c8fddff5_o.mp4" type="video/mp4">
+                     Your browser does not support the video tag.
+                 </video>
+             </div>
+             <div class="video-box">
+                 <video controls autoplay muted>
+                     <source src="videos-folder/50238484256_6c8d245d7a_o.mp4" type="video/mp4">
+                     Your browser does not support the video tag.
+                 </video>
+             </div>
+             <div class="video-box">
+                 <video controls autoplay muted>
+                     <source src="videos-folder/32552705987_fbc78cd29e_o.mp4" type="video/mp4">
+                     Your browser does not support the video tag.
+                 </video>
+             </div>
+             <div class="video-box">
+                 <video controls autoplay muted>
+                     <source src="videos-folder/7672088804_38b388f59e_o.mp4" type="video/mp4">
+                     Your browser does not support the video tag.
+                 </video>
+             </div>
+         </div>
+     </v-container> -->
+
+ <v-container fluid class="pa-0">
+     <div>
+         <!-- <h1 style="text-align:center;padding:0;margin:20">Interactive Comparison</h1> -->
+         <!-- <a href="index.html">back to main page</a> -->
+         
+         <div style="text-align:left; color: #FF5722; font-family: 'Roboto Mono', monospace;">
+             <!-- Choose a thumnail image at the bottom of the page to explore details.  -->
+             Zoom in by <v-icon>mdi-gesture-pinch</v-icon> pinching or <v-icon>mdi-swap-vertical</v-icon> scrolling and pan by <v-icon>mdi-gesture-swipe-horizontal</v-icon><v-icon>mdi-mouse</v-icon> dragging.
+         </div>
+             <!-- <br> -->
+
+         
+         
+         <div id="preview_container"class="preview_container">
+
+             <!-- <div class="preview_box box" v-for="viewport in directories" :style="'background-color: ' + bc + ';'">
+                 {{viewport.label}}
+                 <br>
+                 <canvas :id="'canvas_' + viewport.name"></canvas>
+                 <v-progress-linear
+                 v-if="viewport.progress > 0"
+                 :value="viewport.progress"
+                 height="10"
+                 striped
+                 color="#ccddff"
+                 ></v-progress-linear>
+             </div> -->
+
+             <v-row>
+                 <v-col cols="12" md="4" v-for="viewport in directories" :key="viewport.name" class="d-flex justify-center">
+                     <div class="preview_box box" :style="'background-color: ' + bc + ';'">
+                         {{viewport.label}}
+                         <br>
+                         <canvas :id="'canvas_' + viewport.name"></canvas>
+                         <v-progress-linear
+                             v-if="viewport.progress > 0"
+                             :value="viewport.progress"
+                             height="10"
+                             striped
+                             color="#ccddff"
+                         ></v-progress-linear>
+                     </div>
+                 </v-col>
+             </v-row>
+         </div>
+
+
+             <!-- <div style="text-align: center;"> -->
+                 <v-row class="align-center" style="margin-top: 20px;">
+                     <!-- <v-col class="v-label" sm="3" cols="6"></v-col> -->
+                     <v-col cols="12" sm="3" class="d-flex align-center">
+                         <v-slider
+                             dense
+                             v-model="senszoon"
+                             min="-4"
+                             max="-1"
+                             step="0.1"
+                         >Zoom:</v-slider>
+                     </v-col>
+                     <v-col class="v-label" cols="12" sm="4" class="d-flex justify-center align-center">
+                         <span id="text_zoom" class="display-1 font-weight-light">100%</span>
+                     </v-col>
+
+                     <v-col cols="12" sm="2" class="d-flex justify-center align-center">
+                         <v-dialog
+                             width="500"
+                             >
+                             <template v-slot:activator="{ on, attrs }">
+                                 <v-btn
+                                 :color="bc"
+                                 dark
+                                 v-bind="attrs"
+                                 v-on="on"
+                                 >
+                                 pick color
+                                 </v-btn>
+                             </template>
+
+                             <v-card>
+                                 <v-card-title class="headline grey lighten-3">
+                                 Select background color
+                                 </v-card-title>
+                                 <v-color-picker
+                                     v-model="bc"
+                                     dot-size="23"
+                                     swatches-max-height="100"
+                                 ></v-color-picker>
+                             </v-card>
+                         </v-dialog>
+                     <v-card
+                         v-if="currentTid !== null"
+                         elevation="3"
+                         :loading="loading === currentTid"
+                         style="margin:10px; "
+                       >
+                         <!-- You can add elements here if needed to display image info -->
+                       </v-card>
+                       <!-- New button for loading the next image -->
+                       <v-btn color="blue" dark v-on:click="loadNextImage">Next Image</v-btn>
+                       </v-col>
+                 </v-row>
+
+
+     </div>
+ </v-container>
+ </v-main>
+</v-app>
+<!-- </div> -->
+<!-- </div> -->
+</div></section>
+
 <!-- Abstract -->
   <section class="section">
     <div class="container is-max-desktop">
