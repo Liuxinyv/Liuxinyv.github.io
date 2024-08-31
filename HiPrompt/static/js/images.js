@@ -22,7 +22,7 @@ Image.prototype.completedPercentage = 0;
 
 // Initialize the app
 let canvasGroup;
-const images = [...Array(34)];
+const images = [...Array(5)];
 
 window.addEventListener("DOMContentLoaded", function (event) {
     var app = new Vue({
@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", function (event) {
             }
         },
         mounted: function () {
-            this.images = [...Array(34)].map((_, i) => { // array of arrays
+            this.images = [...Array(5)].map((_, i) => { // array of arrays
                 let image = {};
                 return image;
             });

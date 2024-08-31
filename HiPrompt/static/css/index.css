@@ -563,3 +563,7 @@ img {
 .select select:disabled ~ .select_arrow {
   border-top-color: #cccccc;
 }
+
+.preview_box:nth-child(3){
+	display:none;
+}
