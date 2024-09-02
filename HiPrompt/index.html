@@ -171,7 +171,7 @@
                                 </v-col>
                             </v-row>
                             <div id="thumbnail-area" class="preview_container" style="text-align:left">
-                                <v-card color="indigo lighten-4" elevation="3" :loading="loading === tid - 1" v-for="tid in 5" :key="tid" color="">
+                                <v-card color="indigo lighten-4" elevation="3" :loading="loading === tid - 1" v-for="tid in 5" :key="tid" color="" style="margin:10px; padding: 3px;">
                                   <!-- style="margin:10px; padding: 3px;" -->
                                     <div>
                                         <v-btn small primary v-on:click="thumb(tid-1)">open</v-btn>
