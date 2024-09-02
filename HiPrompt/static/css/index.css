@@ -1,10 +1,10 @@
-/* body {
-  font-family: 'Noto Sans', sans-serif;
-} */
 body {
+  font-family: 'Noto Sans', sans-serif;
+}
+/* body {
   margin: 0;
   font-family: "Lucida Console", Courier, monospace;
-}
+} */
 .footer .icon-link {
     font-size: 25px;
     color: #000;

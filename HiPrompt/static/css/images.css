@@ -1,7 +1,10 @@
-body {
+/* body {
     margin: 0;
     font-family: "Lucida Console", Courier, monospace;
-}
+} */
+body {
+    font-family: 'Noto Sans', sans-serif;
+  }
 canvas {
     touch-action: none;
 }
