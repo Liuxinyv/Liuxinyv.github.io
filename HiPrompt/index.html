@@ -122,12 +122,11 @@
       </div>
   </section>
 
-  <section class="section hero space-after">
+  <!-- <section class="section hero space-after">
     <div class="container is-max-desktop ">
           <v-app id="app">
               <v-container>
                   <div>
-                      <!-- <h1 style="text-align:center;padding:0;margin:20">Image comparison</h1> -->
                       <h1 class="title is-3">Interactive Comparison</h1>
                       <div>
                           Choose a thumnail image at the bottom of the page to explore details. You can zoom in by <v-icon>mdi-gesture-pinch</v-icon>
@@ -136,9 +135,9 @@
                           <v-icon>mdi-mouse</v-icon>
                           dragging.
                   
-                      </div>
+                      </div> -->
                       <!-- <a href="index.html">back to main page</a> -->
-                      <div id="preview_container" class="preview_container">
+                      <!-- <div id="preview_container" class="preview_container">
                           <div class="preview_box box" v-for="viewport in directories" :style="'background-color: ' + bc + ';'">
                               {{viewport.label}}
                           <br>
@@ -172,7 +171,6 @@
                               </v-row>
                               <div id="thumbnail-area" class="preview_container" style="text-align:left">
                                   <v-card color="indigo lighten-4" elevation="3" :loading="loading === tid - 1" v-for="tid in 5" :key="tid" color="" style="margin:10px; padding: 3px;">
-                                    <!-- style="margin:10px; padding: 3px;" -->
                                       <div>
                                           <v-btn small primary v-on:click="thumb(tid-1)">open</v-btn>
                                           {{tid - 1}}.png
@@ -189,8 +187,66 @@
               </v-container>
           </v-app>
     </div>
-  </section>
-
+  </section> -->
+  <section class="section hero space-after">
+    <div class="container is-max-desktop">
+        <v-app id="app">
+            <v-container>
+                <div>
+                    <h1 class="title is-3">Interactive Comparison</h1>
+                    <div>
+                        Choose a thumbnail image at the bottom of the page to explore details. You can zoom in by <v-icon>mdi-gesture-pinch</v-icon>
+                        pinching or <v-icon>mdi-swap-vertical</v-icon>
+                        scrolling and pan by <v-icon>mdi-gesture-swipe-horizontal</v-icon>
+                        <v-icon>mdi-mouse</v-icon>
+                        dragging.
+                    </div>
+                    <div id="preview_container" class="preview_container">
+                        <div class="preview_box box" v-for="viewport in directories" :style="'background-color: ' + bc + ';'">
+                            {{viewport.label}}
+                            <canvas :id="'canvas_' + viewport.name"></canvas>
+                            <v-progress-linear v-if="viewport.progress > 0" :value="viewport.progress" height="10" striped color="#ccddff"></v-progress-linear>
+                        </div>
+                        <div style="text-align: center;">
+                            <v-row>
+                                <v-col class="v-label theme--light" sm="2" cols="6">Zoom sensitivity:</v-col>
+                                <v-col sm="4" cols="6">
+                                    <v-slider dense v-model="senszoon" min="-4" max="-1" step="0.1"></v-slider>
+                                </v-col>
+                                <v-col class="v-label theme--light" sm="2">
+                                    Current zoom:
+                                    <span id="text_zoom" class="display-1 font-weight-light">100%</span>
+                                </v-col>
+                                <v-col sm="4">
+                                    <v-dialog width="500">
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-btn :color="bc" dark v-bind="attrs" v-on="on">pick color</v-btn>
+                                        </template>
+                                        <v-card>
+                                            <v-card-title class="headline grey lighten-3">Select background color</v-card-title>
+                                            <v-color-picker v-model="bc" dot-size="23" swatches-max-height="100"></v-color-picker>
+                                        </v-card>
+                                    </v-dialog>
+                                </v-col>
+                            </v-row>
+                            <div id="thumbnail-area" class="preview_container" style="text-align:left">
+                                <v-card color="indigo lighten-4" elevation="3" :loading="loading === tid - 1" v-for="tid in 5" :key="tid" color="" style="margin:10px; padding: 3px;">
+                                    <div>
+                                        <v-btn small primary v-on:click="thumb(tid-1)">open</v-btn>
+                                        {{tid - 1}}.png
+                                    </div>
+                                    <div>
+                                        <v-img contain max-width="150" max-height="150" :src="'./visuals/images/thumbnails/' + (tid - 1) + '.png'"/>
+                                    </div>
+                                </v-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </v-container>
+        </v-app>
+    </div>
+</section>
 <!-- Abstract -->
   <section class="section">
     <div class="container is-max-desktop">
