@@ -594,9 +594,10 @@ img {
 
 .section-wrap  .v-application--wrap{
   min-height: auto;
-  max-width: 1000px;
+  width: fit-content;
 }
 .container-wrap .container{
-  max-width: 1000px; /* 示例最大宽度 */
+  /* max-width: 1000px;  */
+  width: fit-content;
   margin: 0 auto; /* 居中对齐 */
 }
