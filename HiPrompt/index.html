@@ -126,7 +126,7 @@
     <div class="container is-max-desktop">
       <!-- <div class="columns is-centered has-text-centered"> -->
         <v-app id="app">
-            <v-container fluid class="container-wrap">
+            <v-container>
                 <div>
                     <!-- <h1 class="title is-3">Interactive Comparison</h1> -->
                     <div>
@@ -139,7 +139,7 @@
                     <div id="preview_container" class="preview_container">
                         <div class="preview_box box" v-for="viewport in directories" :style="'background-color: ' + bc + ';'">
                             {{viewport.label}}
-                            <canvas :id="'canvas_' + viewport.name"></canvas>
+                            <canvas :id="'canvas_' + viewport.name" width="400" height="400"></canvas>
                             <v-progress-linear v-if="viewport.progress > 0" :value="viewport.progress" height="10" striped color="#ccddff"></v-progress-linear>
                         </div>
                         <div style="text-align: center;">
