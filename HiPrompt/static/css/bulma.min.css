@@ -9191,7 +9191,8 @@ print {
 }
 
 .columns.is-centered {
-    justify-content: center
+    justify-content: center;
+    width: 1000px;
 }
 
 .columns.is-gapless {
