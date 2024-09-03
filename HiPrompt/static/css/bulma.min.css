@@ -2153,7 +2153,8 @@ fieldset[disabled] .button {
     flex-grow: 1;
     margin: 0 auto;
     position: relative;
-    width: auto
+    width: 1000px
+    /* width: auto */
 }
 
 .container.is-fluid {
