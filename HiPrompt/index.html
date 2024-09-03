@@ -139,7 +139,7 @@
                     <div id="preview_container" class="preview_container">
                         <div class="preview_box box" v-for="viewport in directories" :style="'background-color: ' + bc + ';'">
                             {{viewport.label}}
-                            <canvas :id="'canvas_' + viewport.name"></canvas>
+                            <canvas :id="'canvas_' + viewport.name" :style="{ width: canvasWidth + 'px', height: canvasHeight + 'px' }"></canvas>
                             <v-progress-linear v-if="viewport.progress > 0" :value="viewport.progress" height="10" striped color="#ccddff"></v-progress-linear>
                         </div>
                         <div style="text-align: center;">
@@ -153,7 +153,7 @@
                                     <span id="text_zoom" class="display-1 font-weight-light">100%</span>
                                 </v-col>
                                 <v-col sm="4">
-                                    <v-dialog width="500">
+                                    <v-dialog width="800">
                                         <template v-slot:activator="{ on, attrs }">
                                             <v-btn :color="bc" dark v-bind="attrs" v-on="on">pick color</v-btn>
                                         </template>

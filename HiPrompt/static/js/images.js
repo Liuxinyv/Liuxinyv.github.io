@@ -75,6 +75,15 @@ window.addEventListener("DOMContentLoaded", function (event) {
                 let image = {};
                 return image;
             });
+            // 在 Vue 实例被挂载后设置 canvas 尺寸
+            for (let dirname of ["input", "bgr", "ours"]) {
+                const canvas = document.querySelector('#canvas_' + dirname);
+                if (canvas) {
+                    canvas.width = 400;  // 设定宽度
+                    canvas.height = 400; // 设定高度
+                }
+            }
+            
         },
         watch: {
             senszoon: function(val) {
@@ -87,8 +96,6 @@ window.addEventListener("DOMContentLoaded", function (event) {
     canvasGroup = new ResponsiveCanvasGroup(uiSize=150);
     for (let dirname of ["input", "bgr", "ours"]) {
         const canvas = document.querySelector('#canvas_' + dirname);
-        canvas.setAttribute('width', '400');  // 设置宽度为400
-        canvas.setAttribute('height', '400'); // 设置高度为400
         canvasGroup.registerCanvas(dirname, canvas);
     }
     canvasGroup.zoomDiv = document.getElementById("text_zoom");
