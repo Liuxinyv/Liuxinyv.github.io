@@ -148,6 +148,6 @@ canvas {
     border-top-color: #cccccc;
 }
 .preview_box canvas {
-    width: 500px; /* 或者指定具体的像素值，比如 400px */
-    height: 500px; /* 或者指定具体的像素值，比如 300px */
+    width: 400px; /* 或者指定具体的像素值，比如 400px */
+    height: 400px; /* 或者指定具体的像素值，比如 300px */
   }
