@@ -142,7 +142,7 @@
                             <canvas :id="'canvas_' + viewport.name" :style="{ width: canvasWidth + 'px', height: canvasHeight + 'px' }"></canvas>
                             <v-progress-linear v-if="viewport.progress > 0" :value="viewport.progress" height="10" striped color="#ccddff"></v-progress-linear>
                         </div>
-                        <div style="text-align: center;">
+                        <div class="preview_container" style="text-align: center;">
                             <v-row>
                                 <v-col class="v-label theme--light" sm="2" cols="6">Zoom sensitivity:</v-col>
                                 <v-col sm="4" cols="6">
