@@ -591,6 +591,7 @@ img {
 
 .section-wrap  .v-application--wrap{
   min-height: auto;
+  max-width: 1000px;
 }
 .container-wrap .container{
   max-width: 1000px; /* 示例最大宽度 */
