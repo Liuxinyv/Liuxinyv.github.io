@@ -83,8 +83,8 @@ window.addEventListener("DOMContentLoaded", function (event) {
         },
         vuetify: new Vuetify()
     });
-    // Create a group of canvases that switch mode, drag, and zoom in-sync
-    canvasGroup = new ResponsiveCanvasGroup(uiSize=150);
+    // Create a group of canvases that switch mode, drag, and zoom in-sync,uiSize=150
+    canvasGroup = new ResponsiveCanvasGroup(uiSize=200);
     for (let dirname of ["input", "bgr", "ours"]) {
         const canvas = document.querySelector('#canvas_' + dirname);
         canvasGroup.registerCanvas(dirname, canvas);
