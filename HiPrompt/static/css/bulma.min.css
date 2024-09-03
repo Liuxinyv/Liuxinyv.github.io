@@ -12739,9 +12739,9 @@ print {
     min-height: 50vh
 }
 
-.hero.is-fullheight {
+/* .hero.is-fullheight {
     min-height: 100vh
-}
+} */
 
 .hero-video {
     overflow: hidden
