@@ -597,13 +597,6 @@ img {
   width: fit-content;
 }
 .container-wrap .container{
-  /* max-width: 1000px;  */
-  width: fit-content;
+  max-width: 1000px; /* 示例最大宽度 */
   margin: 0 auto; /* 居中对齐 */
-}
-.hero {
-  align-items: stretch;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
