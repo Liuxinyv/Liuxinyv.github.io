@@ -139,7 +139,7 @@
                     <div id="preview_container" class="preview_container">
                         <div class="preview_box box" v-for="viewport in directories" :style="'background-color: ' + bc + ';'">
                             {{viewport.label}}
-                            <canvas :id="'canvas_' + viewport.name" :style="{ width: canvasWidth + 'px', height: canvasHeight + 'px' }"></canvas>
+                            <canvas :id="'canvas_' + viewport.name"></canvas>
                             <v-progress-linear v-if="viewport.progress > 0" :value="viewport.progress" height="10" striped color="#ccddff"></v-progress-linear>
                         </div>
                         <div class="preview_container" style="text-align: center;">

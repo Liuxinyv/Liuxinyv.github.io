@@ -75,14 +75,6 @@ window.addEventListener("DOMContentLoaded", function (event) {
                 let image = {};
                 return image;
             });
-            // // 在 Vue 实例被挂载后设置 canvas 尺寸
-            // for (let dirname of ["input", "bgr", "ours"]) {
-            //     const canvas = document.querySelector('#canvas_' + dirname);
-            //     if (canvas) {
-            //         canvas.width = 400;  // 设定宽度
-            //         canvas.height = 400; // 设定高度
-            //     }
-            // }
             
         },
         watch: {
