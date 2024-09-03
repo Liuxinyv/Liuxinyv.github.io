@@ -151,3 +151,8 @@ canvas {
     width: 500px; /* 或者指定具体的像素值，比如 400px */
     height: 500px; /* 或者指定具体的像素值，比如 300px */
   }
+
+.preview_box canvas {
+width: 500px; /* 或者指定具体的像素值，比如 400px */
+height: 500px; /* 或者指定具体的像素值，比如 300px */
+}

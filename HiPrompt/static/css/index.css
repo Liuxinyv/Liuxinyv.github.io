@@ -473,6 +473,7 @@ border-left: 5px solid rgb(255, 180, 240);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 1000px;
 }
 #button_box {
   display: flex;
