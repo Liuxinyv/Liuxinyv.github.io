@@ -592,7 +592,7 @@ img {
 .section-wrap  .v-application--wrap{
   min-height: auto;
 }
-.container-wrap{
-  max-width: 1200px; /* 示例最大宽度 */
+.container-wrap .container{
+  max-width: 1000px; /* 示例最大宽度 */
   margin: 0 auto; /* 居中对齐 */
 }
