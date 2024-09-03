@@ -437,6 +437,12 @@ border-left: 5px solid rgb(255, 180, 240);
   background-color: #ddd;
   max-width: 1200px;
 }
+#container-img {
+  margin: 0px auto;
+  padding: 10px;
+  background-color: #ddd;
+  max-width: 1200px;
+}
 #header_div {
   margin: 6px;
 }
@@ -585,4 +591,8 @@ img {
 
 .section-wrap  .v-application--wrap{
   min-height: auto;
+}
+.container-wrap{
+  max-width: 1200px; /* 示例最大宽度 */
+  margin: 0 auto; /* 居中对齐 */
 }
