@@ -136,7 +136,7 @@
                         <v-icon>mdi-mouse</v-icon>
                         dragging.
                     </div>
-                    <div id="preview_container" class="preview_container">
+                    <!-- <div id="preview_container" class="preview_container"> -->
                         <div class="preview_box box" v-for="viewport in directories" :style="'background-color: ' + bc + ';'">
                             {{viewport.label}}
                             <canvas :id="'canvas_' + viewport.name"></canvas>
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
               <!-- </div> -->
             </v-container>
         </v-app>

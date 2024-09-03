@@ -601,3 +601,9 @@ img {
   width: fit-content;
   margin: 0 auto; /* 居中对齐 */
 }
+.hero {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
