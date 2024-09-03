@@ -585,8 +585,11 @@ img {
   border-top-color: #cccccc;
 }
 
-.preview_box:nth-child(3){
+/* .preview_box:nth-child(3){
 	display:block;
+} */
+.preview_box{
+	display:flex;
 }
 
 .section-wrap  .v-application--wrap{
