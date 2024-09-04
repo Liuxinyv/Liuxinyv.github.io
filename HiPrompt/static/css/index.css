@@ -606,3 +606,7 @@ img {
     flex: 0 0 56.6666666667%;
     max-width: 56.6666666667%;
 }
+.hero.is-light-w {
+  /* background-color: #f5f5f5; */
+  color: rgba(0, 0, 0, .7);
+}
