@@ -333,8 +333,8 @@ border-left: 5px solid rgb(255, 180, 240);
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 1580px;
-  height: 500px; /* 设置固定高度来限制内容 */
+  width: 800px;
+  height: 400px; /* 设置固定高度来限制内容 */
   overflow: hidden; /* 隐藏超出容器的内容 */
   position: relative;
   margin: auto;
@@ -342,6 +342,8 @@ border-left: 5px solid rgb(255, 180, 240);
 
 .vid-txt {
   padding: 90px;
+  width: 100%; /* 设置宽度为父元素宽度的 80% */
+  height: 300px; /* 设置固定的高度 */
   text-align: center;
   display: flex;
   justify-content: flex-start;
