@@ -148,6 +148,6 @@ canvas {
     border-top-color: #cccccc;
 }
 .preview_box canvas {
-    width: 400px;
+    width: 300px;
     height: 400px;
   }
