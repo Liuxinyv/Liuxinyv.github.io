@@ -9194,8 +9194,8 @@ print {
 
 .columns.is-centered {
     justify-content: center;
-    width: 1580px;
-    /* width: 1000px; */
+    /* width: 1580px; */
+    width: 1000px;
     margin: 0 auto;
 }
 
