@@ -2153,7 +2153,8 @@ fieldset[disabled] .button {
     flex-grow: 1;
     margin: 0 auto;
     position: relative;
-    width: 1000px
+    width: 1580px
+    /* width: 1000px */
     /* width: auto */
 }
 
@@ -2166,7 +2167,8 @@ fieldset[disabled] .button {
 
 @media screen and (min-width:1024px) {
     .container {
-        max-width: 960px
+        max-width: 1580px
+        /* max-width: 960px */
     }
 }
 
@@ -9192,7 +9194,9 @@ print {
 
 .columns.is-centered {
     justify-content: center;
-    width: 1000px;
+    width: 1580px;
+    /* width: 1000px; */
+    margin: 0 auto;
 }
 
 .columns.is-gapless {
