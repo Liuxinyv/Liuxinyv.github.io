@@ -498,6 +498,7 @@ img {
   cursor: pointer;
 }
 .preview_box {
+
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -584,13 +585,13 @@ img {
 .select select:disabled ~ .select_arrow {
   border-top-color: #cccccc;
 }
-
+/* 
 .preview_box:nth-child(3){
 	display:flex;
-}
-/* .preview_box{
-	display:flex;
 } */
+.preview_box{
+	flex:1;
+}
 
 .section-wrap  .v-application--wrap{
   min-height: auto;
