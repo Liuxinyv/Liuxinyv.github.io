@@ -124,7 +124,7 @@
 
   <section class="section hero space-after   section-wrap">
     <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
+      <div class="columns_2 is-centered has-text-centered">
         <v-app id="app">
             <v-container>
                 <div>
@@ -142,7 +142,7 @@
                             <canvas :id="'canvas_' + viewport.name"></canvas>
                             <v-progress-linear v-if="viewport.progress > 0" :value="viewport.progress" height="10" striped color="#ccddff"></v-progress-linear>
                         </div>
-                        <div class="preview_container" style="text-align: center;">
+                        <div style="text-align: center;">
                             <v-row>
                                 <!-- <v-col class="v-label theme--light" sm="2" cols="6">Zoom sensitivity:</v-col>
                                 <v-col sm="4" cols="6">
