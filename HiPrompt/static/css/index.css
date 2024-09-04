@@ -351,6 +351,7 @@ border-left: 5px solid rgb(255, 180, 240);
   align-items: center;
   flex-direction: column;
   max-width: 100%; /* 防止超出父容器的宽度 */
+  box-sizing: border-box; /* 包括 padding 在内的所有宽度 */
   margin: auto;
 }
 .vid-txt p {
