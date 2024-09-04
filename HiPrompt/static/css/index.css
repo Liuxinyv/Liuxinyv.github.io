@@ -600,3 +600,8 @@ img {
   max-width: 1000px; /* 示例最大宽度 */
   margin: 0 auto; /* 居中对齐 */
 }
+
+.col-sm-2 {
+    flex: 0 0 56.6666666667%;
+    max-width: 56.6666666667%;
+}
