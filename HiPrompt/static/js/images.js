@@ -29,9 +29,9 @@ window.addEventListener("DOMContentLoaded", function (event) {
         el: '#app',
         data: {
             directories: [
-                {"path": "./visuals/images/bgr", "name": "bgr", "label": "SDXL", progress: 0},
-                {"path": "./visuals/images/img", "name": "input", "label": "HiPrompt", "thumbnail": "", progress: 0},
-                {"path": "./visuals/images/ours", "name": "ours", "label": "Our output", progress: 0}
+                {"path": "./visuals/images/bgr", "name": "bgr", "label": "SDXL Direct Interpolation", progress: 0},
+                {"path": "./visuals/images/img", "name": "input", "label": "DemoFusion", "thumbnail": "", progress: 0},
+                {"path": "./visuals/images/ours", "name": "ours", "label": "HiPrompt", progress: 0}
             ],
             loading: false,
             bc: '#88c7b0',
