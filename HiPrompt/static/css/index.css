@@ -585,9 +585,9 @@ img {
   border-top-color: #cccccc;
 }
 
-.preview_box:nth-child(3){
+/* .preview_box:nth-child(3){
 	display:none;
-}
+} */
 /* .preview_box{
 	display:flex;
 } */
