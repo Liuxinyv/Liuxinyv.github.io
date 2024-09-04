@@ -586,7 +586,7 @@ img {
 }
 
 .preview_box:nth-child(3){
-	display:block;
+	display:none;
 }
 /* .preview_box{
 	display:flex;
