@@ -328,12 +328,11 @@ border-left: 5px solid rgb(255, 180, 240);
   width: 220px;
 }
 
-
 .carousel-vid {
   display: flex;
   place-items: center;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin: auto;
   width: 1580px;
   overflow: hidden;
