@@ -336,8 +336,8 @@ border-left: 5px solid rgb(255, 180, 240);
   justify-content: flex-start;
   /* align-items: flex-start; */
   margin: auto;
-  width: 1400px;
-  height: 400px;
+  /* width: 1400px;
+  height: 400px; */
   overflow: hidden;
   gap: 20px;
   flex-direction: column; 
