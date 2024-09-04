@@ -357,6 +357,12 @@ border-left: 5px solid rgb(255, 180, 240);
   flex-direction: column; 
   margin-bottom: 20px;
 }
+.vid-txt img {
+  vertical-align:middle;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .vid-txt p {
   margin-top: 10px;
   margin: auto;
