@@ -56,7 +56,8 @@ class ResponsiveCanvasGroup {
         canvas.width = image.width;
         canvas.height = image.height;
         ctx.drawImage(image, 0, 0);
-        return canvas.toDataURL();
+        // return canvas.toDataURL();
+        return canvas.toDataURL("image/png", 1.0);
     }
 
     // Sets the image for a particular `name` and `version` to `image`.
