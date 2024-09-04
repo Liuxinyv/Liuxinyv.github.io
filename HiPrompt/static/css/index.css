@@ -335,11 +335,13 @@ border-left: 5px solid rgb(255, 180, 240);
   align-items: flex-start;
   margin: auto;
   width: 1580px;
-  overflow: hidden;
+  height: 600px; /* 设置固定高度 */
+  overflow: hidden; /* 确保溢出内容被隐藏 */
   flex-direction: column; 
   position: relative;
 }
-.vid-txt{
+
+.vid-txt {
   padding: 90px;
   text-align: center;
   margin: auto;
@@ -349,6 +351,8 @@ border-left: 5px solid rgb(255, 180, 240);
   align-items: center;
   flex-direction: column; 
   /* margin-bottom: 20px; */
+  box-sizing: border-box; /* 确保 padding 不会影响布局 */
+  max-width: 100%; /* 防止子元素宽度超出父容器 */
 }
 
 .vid-txt p {
