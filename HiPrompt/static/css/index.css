@@ -330,11 +330,12 @@ border-left: 5px solid rgb(255, 180, 240);
 
 .carousel-vid {
   display: flex;
+  place-items: center;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 800px;
-  height: 400px; /* 设置固定高度来限制内容 */
+  width: 1400px;
+  height: 600px; /* 设置固定高度来限制内容 */
   overflow: hidden; /* 隐藏超出容器的内容 */
   position: relative;
   margin: auto;
@@ -350,10 +351,8 @@ border-left: 5px solid rgb(255, 180, 240);
   align-items: center;
   flex-direction: column;
   max-width: 100%; /* 防止超出父容器的宽度 */
-  box-sizing: border-box;
-  overflow: hidden; /* 确保子元素本身的溢出也被隐藏 */
+  margin: auto;
 }
-
 .vid-txt p {
   margin-top: 10px;
   margin: auto;
