@@ -9199,6 +9199,13 @@ print {
     margin: 0 auto;
 }
 
+.columns_2.is-centered {
+    justify-content: center;
+    width: 1580px;
+    /* width: 1000px; */
+    margin: 0 auto;
+}
+
 .columns.is-gapless {
     margin-left: 0;
     margin-right: 0;
