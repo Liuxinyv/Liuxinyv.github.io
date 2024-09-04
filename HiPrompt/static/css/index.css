@@ -331,28 +331,33 @@ border-left: 5px solid rgb(255, 180, 240);
 .carousel-vid {
   display: flex;
   place-items: center;
-  flex-direction: column;
+  /* justify-content: center; */
   align-items: center;
   justify-content: flex-start;
-  width: 1400px;
-  height: 600px; /* 设置固定高度来限制内容 */
-  overflow: hidden; /* 隐藏超出容器的内容 */
-  position: relative;
+  /* align-items: flex-start; */
   margin: auto;
+  width: 1400px;
+  height: 400px;
+  overflow: hidden;
+  gap: 20px;
+  flex-direction: column; 
+  position: relative;
 }
 
 .vid-txt {
   padding: 90px;
-  width: 100%; /* 设置宽度为父元素宽度的 80% */
-  height: 300px; /* 设置固定的高度 */
   text-align: center;
+  margin: 100%;
+  height: 100%;
+  /* height: 750px; */
+  /* width: 700px; */
   display: flex;
-  justify-content: flex-start;
+  /* justify-content: center; */
   align-items: center;
-  flex-direction: column;
-  max-width: 100%; /* 防止超出父容器的宽度 */
-  box-sizing: border-box; /* 包括 padding 在内的所有宽度 */
-  margin: auto;
+  justify-content: flex-start;
+  overflow: hidden;
+  flex-direction: column; 
+  margin-bottom: 20px;
 }
 .vid-txt p {
   margin-top: 10px;
