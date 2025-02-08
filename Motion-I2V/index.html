@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Motion-I2V</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+      rel="stylesheet">
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="./static/css/bulma.min.css">
+<link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+<link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+<link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+<link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<link rel="stylesheet" href="./static/css/index.css">
+<!-- <link rel="icon" href="./static/icon.svg"> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>
+</head>
+
+<body>
+	<button style="position: fixed;right: 15px;top:  50%;height: 100px;width: 140px; font-size: 20px;" type="button"><a href="#top">Back to top</a></button> 
+<div class="page-container">
+  <!-- <h1 align="center">DynamiCrafter:<br>Animating Open-domain Images with Video Diffusion Priors</h1> -->
+  
+  
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- <img src="static/logo_long.png" style="height:90px"></img> -->
+            <h1 class="title is-1 publication-title">VFX Creator: Animated Visual Effect Generation with Controllable Diffusion Transformer</h1>
+            <div class="column is-full_width">
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <span><a href="https://liuxinyv.github.io/">Xinyu Liu</a>, <a href="https://ailingzeng.site/">Ailing Zeng</a>, Wei Xue, Harry Yang, Wenhan Luo, Qifeng Liu, Yike Guo</span>
+            </div>
+            
+            <div class="column has-text-centered">
+            <div class="publication-links">
+                <span class="link-block">
+                    <a href="https://arxiv.org/abs/2401.15977"
+                    class="external-link button is-normal is-rounded">
+               
+                    <span>Paper</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                    <a href="#abstract"
+                    class="external-link button is-normal is-rounded">
+                    <!-- <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span> -->
+                    <span>Abstract</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                  <a href="#Open-VFX"
+                  class="external-link button is-normal is-rounded">
+                  <!-- <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span> -->
+                  <span>Open-VFX</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="#method"
+                  class="external-link button is-normal is-rounded">
+                  <!-- <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span> -->
+                  <span>Method</span>
+                  </a>
+              </span>
+                <span class="link-block">
+                    <a href="#comporisons"
+                    class="external-link button is-normal is-rounded">
+                    <!-- <span class="icon">
+                        <i class="far fa-images"></i>
+                    </span> -->
+                    <span>Comporisons</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                  <a href="#Spatial Control"
+                  class="external-link button is-normal is-rounded">
+                  <!-- <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span> -->
+                  <span>Spatial Control</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="#Temporal Control"
+                class="external-link button is-normal is-rounded">
+                <!-- <span class="icon">
+                    <i class="far fa-images"></i>
+                </span> -->
+                <span>Temporal Control</span>
+                </a>
+              </span>
+            </div>
+            <!-- <div class="is-size-6 publication-authors">
+              <span class="author-block">Unless stated otherwise, all video results contains 16 frames at a resolution of 256 &times; 256.</span>
+
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser Video-->
+  <!-- <section style="padding: 0;margin-top: 10px;" class="section hero">
+    <div class="container is-max-desktop">
+          <div class="item">
+          <div class="column-video" style="border-radius:10px;justify-content: center;align-items: center; font-size: 100px;">
+            <iframe width="960" height="540" src="https://www.youtube.com/embed/yWFMpRXubHI?si=Bhy518IZRXp__71G" class="frame" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+    </div>
+  </section>   -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column">
+                <!-- <h2 class="title is-3" id="method">VFX Creator</h2> -->
+                <!-- <div style="margin-bottom: 20px;"></div> -->
+                <div class="content has-text-justified" style="display: flex; flex-direction: column; align-items: center;"> <!-- 添加此行 -->
+                    <img src="static/teaser.jpg" alt="" width="960" />
+                    <p>
+                    <b>VFX Creator</b> is an efficient framework based on a Video Diffusion Transformer, enabling spatial and temporal control for visual effect (VFX) video generation. With minimal training data, a plug-and-play mask control module allows precise instance-level manipulation, while the integration of tokenized start-end motion timestamps with text space provides fine-grained temporal control over the VFX rhythm.                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- End Teaser Video --> 
+  
+  <!-- Paper abstract -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3" id="abstract">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Crafting magic and illusions stands as one of the most thrilling facets of filmmaking, with visual effects (VFX) serving as the powerhouse behind unforgettable cinematic experiences.
+While recent advances in generative artificial intelligence have catalyzed progress in generic image and video synthesis, the domain of controllable VFX generation remains comparatively underexplored. 
+
+More importantly, fine-grained spatial-temporal controllability in VFX generation is critical, but challenging due to data scarcity, complex dynamics, and precision in spatial manipulation.
+
+In this work, we propose a novel paradigm for animated VFX generation as image animation, where dynamic effects are generated from user-friendly textual descriptions and static reference images.
+
+Our work makes two primary contributions: <b> i) Open-VFX</b>, the first high-quality VFX video dataset spanning 15 diverse effect categories, annotated with textual descriptions, instance segmentation masks for spatial conditioning, and start–end timestamps for temporal control; This dataset features a wide range of subjects for the reference images, including characters, animals, products, and scenes. <b>ii) VFX Creator</b>, a simple yet effective controllable VFX generation framework based on a Video Diffusion Transformer. The model incorporates a spatial and temporal controllable LoRA adapter, requiring minimal training videos. Specifically, a plug-and-play mask control module enables instance-level spatial manipulation, while tokenized start-end motion timestamps embedded in the diffusion process accompanied by the text encoder, allowing precise temporal control over effect timing and pace.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+  <!-- Paper method -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+        <div class="column">
+            <h2 class="title is-3" id="method">Open-VFX Dataset</h2>
+            <div style="margin-bottom: 20px;"></div> 
+            <div class="content has-text-justified">
+              <img src="static/openvfx.png" alt="" width="1000" />
+            <p>
+              Overview of our proposed Open-VFX Dataset. (a) demonstrates diverse input inference images in the dataset, including humans, animals, objects, and various scenes across single and multiple components. (b) shows the text descriptions of the proposed 15 VFXs, and (c) presents an example (<b>Explode it</b>) VFX.
+            </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+    <!-- End paper method -->
+
+  <!-- Results Part1: comparisons -->
+  <section class="section hero">
+    <!------------------ BEGIN SECTION ------------------>
+    <!-- <p>&nbsp;</p> -->
+    <!-- <hr> -->
+    <h2 class="title is-3" id="Open-VFX" align="center">Videos Examples of Open-VFX</h2>
+
+    <table width="1000" align="center" style="margin-top: 30px;">
+      <tbody>
+        <tr>
+          <!-- <th style="font-size: 16px; color: #d4a845;font-family: Cavolini;">"a fast driving tank"</th> -->
+          <th style="font-size: 16px">Cake-ify it</th>
+          <th style="font-size: 16px">Crumble it</th>
+          <th style="font-size: 16px">Crush it</th>
+          <th style="font-size: 16px">Decapitate it</th>
+          <th style="font-size: 16px">Deflate it</th>
+        </tr>
+        <tr>
+          <th><video  class="input_image_comparison" src="openvfx\Cake-ify_it_seed3535558694.mp4" autoplay loop controls muted/></th>
+          <th><video  class="input_image_comparison" src="openvfx\Crumble_it_seed132785383.mp4" autoplay loop controls muted/></th>          
+          <th><video  class="input_image_comparison" src="openvfx\Crush_it_seed2076135452.mp4" autoplay loop controls muted/></th>
+          <th><video  class="input_image_comparison" src="openvfx\Decapitate_it_seed1595785668.mp4" autoplay loop controls muted/></th>
+          <th><video  class="input_image_comparison" src="openvfx\Deflate_it_seed546755746.mp4" autoplay loop controls muted/></th>        </tr>
+        <tr>
+          <th style="font-size: 16px">Dissolve it</th>
+          <th style="font-size: 16px">Explode it</th>
+          <th style="font-size: 16px">Eye-pop it</th>
+          <th style="font-size: 16px">Inflate it</th>
+          <th style="font-size: 16px">Levitate it</th>
+        </tr>
+        <tr>
+          <th><video class="input_image_comparison" src="openvfx\Dissolve_it_seed659895002.mp4" autoplay loop controls muted/></th>
+          <th><video class="input_image_comparison" src="openvfx\Explode_it_seed1415032616.mp4" autoplay loop controls muted/></th>
+          <th><video  class="input_image_comparison" src="openvfx\Eye-pop_it_seed1525440778.mp4" autoplay loop controls muted/></th>
+          <th><video  class="input_image_comparison" src="openvfx\Inflate_it_seed119118870.mp4" autoplay loop controls muted/></th>
+          <th><video class="input_image_comparison" src="openvfx\Levitate_it_seed3779671400.mp4" autoplay loop controls muted/></th>
+        </tr>
+        <tr>
+          <th style="font-size: 16px">Melt it</th>
+          <th style="font-size: 16px">Squish it</th>
+          <th style="font-size: 16px">Ta-da it</th>
+          <th style="font-size: 16px">Transform into Harley Quinn, mastering allure and chaos</th>
+          <th style="font-size: 16px">Transform into a black Venom</th>
+
+        </tr>
+        <tr>
+          <th><video class="input_image_comparison" src="openvfx\Melt_it_seed1175227356.mp4" autoplay loop controls muted/></th>
+          <th><video class="input_image_comparison" src="openvfx\Squish_it_seed1047470346.mp4" autoplay loop controls muted/></th>
+          <th><video  class="input_image_comparison" src="openvfx\Ta-da_it_seed2258293346.mp4" autoplay loop controls muted/></th>
+          <th><video  class="input_image_comparison" src="openvfx\hailey.mp4" autoplay loop controls muted/></th>
+          <th><video class="input_image_comparison" src="openvfx\venom.mp4" autoplay loop controls muted/></th>
+        </tr>
+        
+      </tbody>
+    </table>
+  </section>
+  <!-- End Results Part1-->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column">
+                <h2 class="title is-3" id="method">Method of VFX Creator</h2>
+                <div style="margin-bottom: 20px;"></div>
+                <div class="content has-text-justified" style="display: flex; flex-direction: column; align-items: center;"> <!-- 添加此行 -->
+                    <img src="static/method.png" alt="" width="700" />
+                    <p>
+                      We introduce two novel modules: (a) Spatial Controlled LoRA Adapter. This module integrates a mask-conditioned ControlNet with LoRA, injecting mask sequences into the model to enable instance-level spatial manipulation. (b) Temporal Controlled LoRA Adapter. We explore two strategies for incorporating temporal control:  module I involves tokenizing start-end motion timestamps and embedding them into the diffusion process alongside the text space, while module II integrates temporal mask with timestep embeddings to guide the diffusion process.                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- Results Part2: img2video -->
+  <section class="section hero">
+    <!------------------ BEGIN SECTION ------------------>
+    <!-- <p>&nbsp;</p> -->
+    <!-- <hr> -->
+    <h2 class="title is-3" id="comporisons" align="center">Qualitative Results</h2>
+    
+    <table  width="1000" align="center" style="margin-top: 30px;">
+      <thead>
+        <tr>
+          <th align="center">CogVideoX</th>
+          <th align="center">LTX-Video</th>
+          <th align="center">Pika</th>
+          <th align="center">Ours</th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <th><div class="video-container">
+                <video class="input-image" width="256" src="compare\cogvideo\Crumble-2.mp4" autoplay loop controls muted></video>
+                <div class="caption">Crumble it.</div>
+            </div></th>
+            <th><div class="video-container">
+                <video class="input-image" width="256" src="compare\ltx\Crumble-2.mp4" autoplay loop controls muted></video>
+                <div class="caption">Crumble it.</div>
+            </div></th>
+            <th><div class="video-container">
+                <video class="input-image" width="256" src="compare\pika\Crumble_it_seed3870691244.mp4" autoplay loop controls muted></video>
+                <div class="caption">Crumble it.</div>
+            </div></th>
+            <th><div class="video-container">
+                <video class="input-image" width="256" src="compare\our\Crumble-2.mp4" autoplay loop controls muted></video>
+                <div class="caption">Crumble it.</div>
+            </div></th>
+          </tr>
+          <tr>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\cogvideo\steps_5000_seed_1481653990_pDeflate_it.mp4" autoplay loop controls muted></video>
+                <div class="caption">Deflate it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\ltx\img_to_vid_0_deflate-it_171198_480x720x125_0.mp4" autoplay loop controls muted></video>
+                <div class="caption">Deflate it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\resize\Deflate_it_0.mp4" autoplay loop controls muted></video>
+                <div class="caption">Deflate it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\our\Deflate_it_0_our.mp4" autoplay loop controls muted></video>
+                <div class="caption">Deflate it.</div>
+            </div></th>
+          </tr>
+          <tr>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\cogvideo\steps_3000_seed_1898625694_pDissolve_it.mp4" autoplay loop controls muted></video>
+                <div class="caption">Dissolve it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\ltx\img_to_vid_0_dissolve-it_171198_480x720x125_0.mp4" autoplay loop controls muted></video>
+                <div class="caption">Dissolve it.</div>
+            </div></th>
+            <th><div class="video-container">
+               <video class="input-image" width="256" src="compare\pika\Dissolve_it-3.mp4" autoplay loop controls muted></video>
+                <div class="caption">Dissolve it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\our\Dissolve_it-3_our.mp4" autoplay loop controls muted></video>
+                <div class="caption">Dissolve it.</div>
+            </div></th>
+          </tr>
+          <tr>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\cogvideo\Ta-da_it-3.mp4" autoplay loop controls muted></video>
+                <div class="caption">Ta-da it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\ltx\Ta-da_it-3.mp4" autoplay loop controls muted></video>
+                <div class="caption">Ta-da it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\pika\Ta-da_it-3.mp4" autoplay loop controls muted></video>
+                <div class="caption">Ta-da it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\our\Ta-da_it-3.mp4" autoplay loop controls muted></video>
+                <div class="caption">Ta-da it.</div>
+            </div></th>
+          </tr>
+          <tr>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\resize\steps_5000_seed_2093156989_pEye-pop_it.mp4" autoplay loop controls muted></video>
+                <div class="caption">Eye-pop it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\resize\img_to_vid_0_eyepop-it_171198_480x720x125_0.mp4" autoplay loop controls muted></video>
+                <div class="caption">Eye-pop it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\pika\Eye-pop_it_seed2284593579.mp4" autoplay loop controls muted></video>
+                <div class="caption">Eye-pop it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\resize\pexels-itfeelslikefilm-4055337.mp4" autoplay loop controls muted></video>
+                <div class="caption">Eye-pop it.</div>
+            </div></th>
+          </tr>
+          <tr>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\resize\Inflate_it-3-cog.mp4" autoplay loop controls muted></video>
+                <div class="caption">Inflate it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\resize\Inflate_it-3-ltx.mp4" autoplay loop controls muted></video>
+                <div class="caption">Inflate it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\pika\Inflate_it_seed3813338013.mp4" autoplay loop controls muted></video>
+                <div class="caption">Inflate it.</div>
+            </div></th>
+            <th><div class="video-container">
+              <video class="input-image" width="256" src="compare\resize\Inflate_it-3-our.mp4" autoplay loop controls muted></video>
+                <div class="caption">Inflate it.</div>
+            </div></th>
+          </tr>
+          <tr> <td><br /></td> </tr> 
+        </tbody>
+    </table>
+
+    <!------------------ END   SECTION ------------------>   
+  </section>
+  <!-- End Results Part2-->
+
+  <!-- Results Part3: motion brush-->
+  <section class="section hero">
+    <!------------------ BEGIN SECTION ------------------>
+    <!-- <p>&nbsp;</p> -->
+    <!-- <hr> -->
+    <h2 class="title is-3" id="Spatial Control" align="center">Spatial Control</h2>
+        
+    <table  width="1000" align="center" style="margin-top: 30px;">
+      <tbody>
+        <tr>
+          <th colspan="4" style="text-align: center; font-size: 1.2em;">Levitate it</th>
+        </tr>
+        <tr>
+          <th><img class="input-image" width="256"  src="spatial_control\20.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\23.mp4" autoplay loop controls muted></video></th>
+          <th><img class="input-image" width="256"  src="spatial_control\21.png"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\24.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <th><img class="input-image" width="256"  src="spatial_control\16.png"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\16.mp4" autoplay loop controls muted></video></th>
+          <th><img class="input-image" width="256"  src="spatial_control\10.png"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\10.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <th><img class="input-image" width="256"  src="spatial_control\11.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\11.mp4" autoplay loop controls muted></video></th>
+          <th><img class="input-image" width="256"  src="spatial_control\13.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\17.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <th colspan="4" style="text-align: center; font-size: 1.2em;">Ta-da it</th>
+        </tr>
+        <tr>
+          <th><img class="input-image" width="256" src="spatial_control\02.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\2.mp4" autoplay loop controls muted></video></th>
+          <th><img class="input-image" width="256" src="spatial_control\04.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\4.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <th><img class="input-image" width="256"  src="spatial_control\08.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\8.mp4" autoplay loop controls muted></video></th>
+          <th><img class="input-image" width="256"  src="spatial_control\09.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\9.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <th><img class="input-image" width="256" src="spatial_control\12.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\14.mp4" autoplay loop controls muted></video></th>
+          <th><img class="input-image" width="256"   src="spatial_control\11.jpg"/></th>
+          <th><video class="input-image" width="256" src="spatial_control\13.mp4" autoplay loop controls muted></video></th>
+        </tr>
+                  <tr> <td><br /></td> </tr> 
+      </tbody>
+    </table>
+        <!------------------ END   SECTION ------------------>   
+  </section>
+  <!-- End Results Part3-->
+
+  <!-- Results Part4: motion drag-->
+  <section class="section hero">
+    <!------------------ BEGIN SECTION ------------------>
+    <!-- <p>&nbsp;</p> -->
+    <!-- <hr> -->
+    <h2 class="title is-3" id="Temporal Control" align="center">Temporal Control</h2>
+    <table  width="1000" align="center" style="margin-top: 30px;">
+      <tbody>
+        <tr>
+          <tr>
+            <th style="font-size: 16px">Start: 1fr (0s);<br> End: 32fr (4s).</th>
+            <th style="font-size: 16px">Start: 4fr (0.5s)<br> End: 32fr (4s).</th>
+            <th style="font-size: 16px">Start: 12fr (1.5s);<br> End: 32fr (4s).</th>
+          </tr>
+          <th><video class="input-image" width="256" src="temporal_control\03\3000_16_48.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\01\3000_0_32.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\00\2000_8_36.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <tr>
+            <th style="font-size: 16px">Start: 8fr (1s);<br> End: 24fr (3s).</th>
+            <th style="font-size: 16px">Start: 8fr (1s);<br> End: 40fr (5s).</th>
+            <th style="font-size: 16px">Start: 16fr (2s);<br> End: 32fr (4s).</th>
+          </tr>
+          <th><video class="input-image" width="256" src="temporal_control\03\2000_16_48.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\01\2000_0_32.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\00\2000_20_40.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <tr>
+            <th style="font-size: 16px">Start: 16fr (2s);<br> End: 40fr (5s).</th>
+            <th style="font-size: 16px">Start: 16fr (2s);<br>End: 40fr (5s).</th>
+            <th style="font-size: 16px">Start: 20fr (2.5s);<br> End: 40fr (5s).</th>
+          </tr>
+          <th><video class="input-image" width="256" src="temporal_control\03\3000_32_49.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\01\3000_24_49.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\00\2000_22_42.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <tr>
+            <th style="font-size: 16px">Start: 24fr (3s);<br> End: 48fr (6s).</th>
+            <th style="font-size: 16px">Start: 30fr (3.75s);<br>End: 48fr (6s).</th>
+            <th style="font-size: 16px">Start: 32fr (4s);<br>End: 48fr (6s).</th>
+          </tr>
+          <th><video class="input-image" width="256" src="temporal_control\03\3000_24_49.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\01\3000_32_49.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\00\2000_32_49.mp4" autoplay loop controls muted></video></th>
+        </tr>
+                  <tr> <td><br /></td> </tr> 
+      </tbody>
+      <!-- <tbody>
+        <tr>
+          <tr>
+            <th style="font-size: 16px">Start: 8fr (1s);<br> End: 32fr (4s).</th>
+            <th style="font-size: 16px">Start: 4fr (0.5s)<br> End: 32fr (4s).</th>
+            <th style="font-size: 16px">Start: 1fr (0s);<br> End: 32fr (4s).</th>
+          </tr>
+          <th><video class="input-image" width="256" src="temporal_control\00\2000_8_36.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\01\3000_0_32.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\03\3000_16_48.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <tr>
+            <th style="font-size: 16px">Start: 16fr (2s);<br> End: 32fr (4s).</th>
+            <th style="font-size: 16px">Start: 8fr (1s);<br> End: 40fr (5s).</th>
+            <th style="font-size: 16px">Start: 8fr (1s);<br> End: 24fr (3s).</th>
+          </tr>
+          <th><video class="input-image" width="256" src="temporal_control\00\2000_20_40.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\01\2000_0_32.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\03\2000_16_48.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <tr>
+            <th style="font-size: 16px">Start: 24fr (3s);<br> End: 40fr (5s).</th>
+            <th style="font-size: 16px">Start: 16fr (2s);<br>End: 40fr (5s).</th>
+            <th style="font-size: 16px">Start: 16fr (2s);<br> End: 40fr (5s).</th>
+          </tr>
+          <th><video class="input-image" width="256" src="temporal_control\00\2000_22_42.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\01\3000_24_49.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\03\3000_32_49.mp4" autoplay loop controls muted></video></th>
+        </tr>
+        <tr>
+          <tr>
+            <th style="font-size: 16px">Start: 32fr (4s);<br>End: 48fr (6s).</th>
+            <th style="font-size: 16px">Start: 30fr (3.75s);<br>End: 48fr (6s).</th>
+            <th style="font-size: 16px">Start: 24fr (3s);<br> End: 48fr (6s).</th>
+          </tr>
+          <th><video class="input-image" width="256" src="temporal_control\00\2000_32_49.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\01\3000_32_49.mp4" autoplay loop controls muted></video></th>
+          <th><video class="input-image" width="256" src="temporal_control\03\3000_24_49.mp4" autoplay loop controls muted></video></th>
+        </tr>
+                  <tr> <td><br /></td> </tr> 
+      </tbody> -->
+    </table>     
+    
+        <!------------------ END   SECTION ------------------>   
+  </section>
+  <!-- End Results Part4-->
+
+  <!-- Results Part5: motion brush+drag-->
+  <!-- <section class="section hero">
+    <h2 class="title is-3" id="motion brush+drag" align="center">Motion Brush + Drag</h2>
+    <table  width="1000" align="center" style="margin-top: 30px;">
+      <tbody>
+        <tr>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_1_1.png"/></th>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_1_2.png"/></th>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_1_3.png"/></th>
+        </tr>
+        <tr>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_1_1.gif" alt="GIF 1" class="gif"/></th>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_1_2.gif" alt="GIF 1" class="gif"/></th>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_1_3.gif" alt="GIF 1" class="gif"/></th>
+        </tr>
+        <tr>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_2_1.png"/></th>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_2_2.png"/></th>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_3_1.png"/></th>
+        </tr>
+        <tr>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_2_1.gif" alt="GIF 1" class="gif"/></th>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_2_2.gif" alt="GIF 1" class="gif"/></th>
+          <th><img class="input_image" src="img2video_brush_drag/img2video_brush_drag_3_1.gif" alt="GIF 1" class="gif"/></th>
+      </tr>
+                 <tr> <td><br /></td> </tr> 
+     </tbody>
+   </table>
+  </section> -->
+  <!-- End Results Part5-->
+
+  <!-- Results Part6: video2video-->
+  <!-- <section class="section hero">
+    <h2 class="title is-3" id="video2video" align="center">Video-to-Video Demos</h2>
+        
+    <table  width="1000" align="center" style="margin-top: 30px;">
+        <tbody>
+            <tr>
+              <th style="font-size: 16px; color: #d4a845;font-family: Cavolini;">Source Video</th>
+              <th style="font-size: 16px">Style 1</th>
+              <th style="font-size: 16px">Style 2</th>
+              <th style="font-size: 16px">Style 3</th>
+            </tr>
+            <tr>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_1_1.gif" alt="GIF 1" class="gif">
+                    <div class="caption">rose</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_1_2.gif" alt="GIF 1" class="gif">
+                    <div class="caption">cotton</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_1_3.gif" alt="GIF 1" class="gif">
+                    <div class="caption">origami</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_1_4.gif" alt="GIF 1" class="gif">
+                    <div class="caption">cartoon</div>
+                </div></th>
+            </tr>
+            <tr>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_2_1.gif" alt="GIF 1" class="gif">
+                    <div class="caption">wolf</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_2_2.gif" alt="GIF 1" class="gif">
+                    <div class="caption">Shiba Inu</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_2_3.gif" alt="GIF 1" class="gif">
+                    <div class="caption">cyberpunk</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_2_4.gif" alt="GIF 1" class="gif">
+                    <div class="caption">fox</div>
+                </div></th>
+            </tr>
+            <tr>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_3_1.gif" alt="GIF 1" class="gif">
+                    <div class="caption">owl</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_3_2.gif" alt="GIF 1" class="gif">
+                    <div class="caption">eagle</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_3_3.gif" alt="GIF 1" class="gif">
+                    <div class="caption">mew</div>
+                </div></th>
+                <th><div class="video-container">
+                    <img class="input-image" width="256" src="video2video/video2video_3_4.gif" alt="GIF 1" class="gif">
+                    <div class="caption">phoenix</div>
+                </div></th>
+            </tr>
+            <tr> <td><br /></td> </tr> 
+        </tbody>
+    </table> 
+  </section> -->
+</div>
+
+<script>
+  const videoContainer = document.querySelector('.video-container');
+  const video = document.querySelector('video');
+  const hoverImage = document.querySelector('.hover-image');
+  const caption = document.querySelector('.caption');
+
+  videoContainer.addEventListener('mouseenter', () => {
+      video.pause();
+      hoverImage.style.display = 'block';
+      caption.style.display = 'block';
+  });
+
+  videoContainer.addEventListener('mouseleave', () => {
+      video.play();
+      hoverImage.style.display = 'none';
+      caption.style.display = 'none';
+  });
+
+  // for nerfies template
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-PYVRSFMDRL');
+
+  // for carousel
+  window.addEventListener('DOMContentLoaded', (event) => {
+        const videoWrappers = document.querySelectorAll('.video-wrapper');
+      
+        videoWrappers.forEach(wrapper => {
+          const defaultVideo = wrapper.querySelector('.default-video');
+          const aspectRatio = defaultVideo.videoWidth / defaultVideo.videoHeight;
+          const height = wrapper.offsetWidth / aspectRatio;
+      
+          wrapper.style.height = `${height}px`;
+      
+          wrapper.addEventListener('mouseenter', () => {
+            defaultVideo.pause();
+            hoverVideo.play();
+          });
+      
+          wrapper.addEventListener('mouseleave', () => {
+            defaultVideo.play();
+            hoverVideo.pause();
+          });
+        });
+      }); 
+      $(document).ready(function() {
+        var carouselItems = $('.carousel .item');
+        var numItems = carouselItems.length;
+        var numVideos = 5;
+        var currentIndex = 0;
+    
+        $('.carousel').on('click', function() {
+          currentIndex++;
+          if (currentIndex + numVideos <= numItems) {
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          } else {
+            currentIndex = 0;
+            carouselItems.removeClass('active');
+            carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+          }
+        });
+    
+        carouselItems.slice(currentIndex, currentIndex + numVideos).addClass('active');
+      });
+</script>
+
+
+<footer class="footer">
+  <div class="container" style="text-align: left;">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website content is licensed under a <a rel="license"
+                                                href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
+            Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page, <a href="https://doubiiu.github.io/projects/DynamiCrafter/#comparison_with_baseline_container"> DynamiCrafter</a> project page and <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic-project-page-template</a>. Thanks to their website templates!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
