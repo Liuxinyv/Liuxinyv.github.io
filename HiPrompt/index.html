@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HiPrompt: Tuning-free Higher-Resolution Generation with Hierarchical MLLM Prompts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+    <link rel="canonical" href="https://grail.cs.washington.edu/projects/background-matting-v2/img_results.html"/>
+        <link href="./static/css/images.css" rel="stylesheet">
+        <script src="./static/js/RendererEventSidecar.js"></script>
+        <script src="./static/js/ResponsiveCanvasGroup.js"></script>
+        <script src="./static/js/images.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/script.js"></script>
+  
+  
+
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title"><span style="color:#5e5ed2; font-weight: bold; font-style: italic"><strong>HiPropmt</strong></span> : Tuning-free Higher-Resolution Generation with Hierarchical MLLM Prompts</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://liuxinyv.github.io/" target="_blank">Xinyu Liu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://yingqinghe.github.io/" target="_blank">Yingqing He</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://guolanqing.github.io" target="_blank">Lanqing Guo</a><sup>2</sup>,</span>
+              <span class="author-block">
+                Xiang Li<sup>3</sup>,</span>
+              <span class="author-block">
+                <a href="https://jxbbb.github.io/" target="_blank">Bu Jin</a><sup>4</sup>,</span>
+              <span class="author-block">
+                Peng Li<sup>1</sup>,</span>
+              <span class="author-block">
+                Yan Li<sup>1</sup>,</span>
+              <span class="author-block">
+                Chi-Min Chan<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://cqf.io/" target="_blank">Qifeng Chen</a><sup>1</sup>,</span>
+              <span class="author-block">
+                Wei Xue<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://whluo.github.io/" target="_blank">Wenhan Luo</a><sup>1</sup>,</span>
+              <span class="author-block">
+                Qifeng Liu<sup>1</sup>,</span>
+              <span class="author-block">
+               Yike Guo<sup>1</sup>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>Hong Kong University of Science and Technology,</span>
+              <span class="author-block"><sup>2</sup>Nanyang Technological University,</span>
+              <span class="author-block"><sup>3</sup>Tsinghua University,</span>
+              <span class="author-block"><sup>4</sup>University of Chinese Academy of Sciences</span> <br>
+            </div>
+            <div class="column has-text-centered">
+                <div class="publication-links">
+                    <span class="link-block">
+                    <a href="https://arxiv.org/abs/2409.02919" 
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+                    </span>
+                    <span>arXiv</span>
+                    </a>
+                    </span>
+                    <!-- Code Link. -->
+                    <span class="link-block">
+                    <a href="https://github.com/Liuxinyv/HiPrompt" 
+                       class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                        <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                        </span>
+                        <span>Code</span>
+                    </a>
+                    </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+
+  <section class="section hero space-after   section-wrap">
+    <div class="container is-max-desktop">
+      <div class="columns_2 is-centered has-text-centered">
+        <v-app id="app">
+            <v-container>
+                <div>
+                    <!-- <h1 class="title is-3">Interactive Comparison</h1> -->
+                    <div>
+                        Choose a thumbnail image at the bottom of the page to explore details. You can zoom in by <v-icon>mdi-gesture-pinch</v-icon>
+                        pinching or <v-icon>mdi-swap-vertical</v-icon>
+                        scrolling and pan by <v-icon>mdi-gesture-swipe-horizontal</v-icon>
+                        <v-icon>mdi-mouse</v-icon>
+                        dragging.
+                    </div>
+                    <div id="preview_container" class="preview_container">
+                        <div class="preview_box box" v-for="viewport in directories" :style="'background-color: ' + bc + ';'">
+                            {{viewport.label}}
+                            <canvas :id="'canvas_' + viewport.name"></canvas>
+                            <v-progress-linear v-if="viewport.progress > 0" :value="viewport.progress" height="10" striped color="#ccddff"></v-progress-linear>
+                        </div>
+                        <div style="text-align: center;">
+                            <v-row>
+                                <!-- <v-col class="v-label theme--light" sm="2" cols="6">Zoom sensitivity:</v-col>
+                                <v-col sm="4" cols="6">
+                                    <v-slider dense v-model="senszoon" min="-4" max="-1" step="0.1"></v-slider>
+                                </v-col> -->
+                                <v-col class="v-label theme--light" sm="2">
+                                    Current zoom:
+                                    <span id="text_zoom" class="display-1 font-weight-light">100%</span>
+                                </v-col>
+                                <v-col sm="4">
+                                    <v-dialog width="800">
+                                        <template v-slot:activator="{ on, attrs }">
+                                            <v-btn :color="bc" dark v-bind="attrs" v-on="on">pick color</v-btn>
+                                        </template>
+                                        <v-card>
+                                            <v-card-title class="headline grey lighten-3">Select background color</v-card-title>
+                                            <v-color-picker v-model="bc" dot-size="23" swatches-max-height="100"></v-color-picker>
+                                        </v-card>
+                                    </v-dialog>
+                                </v-col>
+                            </v-row>
+                            <div id="thumbnail-area" class="preview_container" style="text-align:left">
+                                <v-card color="indigo lighten-4" elevation="3" :loading="loading === tid - 1" v-for="tid in 5" :key="tid" color="" style="margin:10px; padding: 3px;">
+                                    <div>
+                                        <v-btn small primary v-on:click="thumb(tid-1)">open</v-btn>
+                                        {{tid - 1}}.png
+                                    </div>
+                                    <div>
+                                        <v-img contain max-width="238" max-height="238" :src="'./visuals/images/thumbnails/' + (tid - 1) + '.png'"/>
+                                    </div>
+                                </v-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </v-container>
+        </v-app>
+    </div>
+</section>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="content has-text-justified">
+      <h3 class="title is-4">
+        <p>Detailed Comparison</p>
+      </h3>
+      <div id="carousel" class="carousel is-max-desktop">
+        <div class="img-txt">
+          <img src="./static/comp/00.png">
+        </div>
+        <div class="img-txt">
+          <img src="./static/comp/01.png">
+        </div>
+        <div class="img-txt">
+          <img src="./static/comp/02.png">
+        </div>
+        <div class="img-txt">
+          <img src="./static/comp/03.png">
+        </div>
+        <div class="img-txt">
+          <img src="./static/comp/04.png">
+        </div>
+        <div class="img-txt">
+          <img src="./static/comp/05.png">
+        </div>
+        <div class="img-txt">
+          <img src="./static/comp/06.png">
+        </div>
+        <div class="img-txt">
+          <img src="./static/comp/07.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <div class="img-txt">
+          <img src="./static/comp/03.png">
+        </div>
+        <div class="vid-txt">
+          <img src="./static/comp/04.png">
+        </div>
+        <div class="vid-txt">
+          <img src="./static/comp/05.png">
+        </div>
+        <div class="vid-txt">
+          <img src="./static/comp/06.png">
+        </div>
+        <div class="vid-txt">
+          <img src="./static/comp/07.png">
+        </div> -->
+<!-- Abstract -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+      <!-- <div class="columns has-text-centered"> -->
+        <!-- <div class="column is-four-fifths"> -->
+        <div class="column is-full-width">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The potential for higher-resolution image generation using pretrained diffusion models is immense, yet these models often struggle with issues of object repetition and structural artifacts especially when scaling to 4K resolution and higher. We figure out that the problem is caused by that, a single prompt for the generation of multiple scales provides insufficient efficacy. In response, we propose HiPrompt, a new tuning-free solution that tackles the above problems by introducing hierarchical prompts. The hierarchical prompts offer both global and local guidance. Specifically, the global guidance comes from the user input that describes the overall content, while the local guidance utilizes patch-wise descriptions from MLLMs to elaborately guide the regional structure and texture generation. Furthermore, during the inverse denoising process, the generated noise is decomposed into low- and high-frequency spatial components. These components are conditioned on multiple prompt levels, including detailed patch-wise descriptions and broader image-level prompts, facilitating prompt-guided denoising under hierarchical semantic guidance. It further allows the generation to focus more on local spatial regions and ensures the generated images maintain coherent local and global semantics, structures, and textures with high definition. Extensive experiments demonstrate that HiPrompt outperforms state-of-the-art works in higher-resolution image generation, significantly reducing object repetition and enhancing structural quality.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+    </div>
+  </section>
+
+<!-- Method -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Concurrent Work. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+        <!-- <div class="column is-four-fifths"> -->
+          <h2 class="title is-3">HiPrompt</h2>
+          <div class="content has-text-justified">
+            <div style="margin-top: 20px; text-align: center;">
+              <img src="./static/images/main.png">
+            </div>
+            <!-- <div class="publication-img">
+              <img id="architecture" src="./static/images/main.png" style="width:900px; margin-top:10px;margin-bottom:10px;text-align: center;"/>
+            </div> -->
+            <p align="justify">
+              Given a low-resolution image, MLLMs are employed to generate
+              dense local descriptions for each overlapping local patch. To enhance the quality of these detailed prompts, we utilize N-grams
+              (n = 1) refinement to filter out irrelevant noise. Subsequently, HiPrompt decomposes the noisy image into low- and high-spatial
+              frequency components using low-pass and high-pass Gaussian filters. These components are denoised in parallel, conditioned
+              on the hierarchical prompts, and then summarized into final estimation during the inverse denoising process.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </section>
+
+
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3"> Qualitative Comparision Results</h2>
+          <p><br></p>
+          <h2 class="subtitle" style="text-align: left;">The red boxes highlight the repeated object problem, while the yellow boxes denote areas with blurred and unreasonable structures.</h2>
+          <h2 class="subtitle has-text-centered">"A professional photograph of an astronaut riding a horse."</h2>
+          <div class="content has-text-justified">
+            <div style="margin-top: 20px; text-align: center;">
+              <img src="./static/images/hi_demo.png">
+            </div>
+          </div>
+          <!-- <h2 class="subtitle has-text-centered">A cute and adorable fluffy puppy wearing a witch hat in a
+            halloween autumn evening forest, falling autumn leaves,
+            brown acorns on the ground, halloween pumpkins spiderwebs, bats, a witch’s broom.</h2> -->
+          <!-- <div class="content has-text-justified">
+            <div style="margin-top: 20px">
+              <img src="./static/images/comp2_2.png">
+            </div>
+          </div> -->
+          <h2 class="subtitle has-text-centered">"A cute and adorable fluffy puppy wearing a witch hat in a halloween autumn evening forest, falling autumn leaves, brown acorns on the ground, halloween pumpkins spiderwebs, bats, a witch’s broom."
+          </h2>
+          <div class="content has-text-justified">
+            <div style="margin-top: 20px;text-align: center;">
+              <img src="./static/images/puppy.png">
+            </div>
+          </div>
+
+          <!-- <h2 class="subtitle has-text-centered">Samples with 4096*4096 generated by HiPrompt with SDXL.</h2>
+              <div id="carousel-vid" class="carousel is-max-desktop" align="center" style="overflow: hidden;margin-top: 0px;">
+               <div id="carousel-img" class="carousel is-max-desktop"> -->
+                <!-- <div class="vid-txt">
+                  <table  style="border-collapse: separate; border-spacing: 0px 0px;">
+                    <tbody>
+                      <th style="font-size: 16px; text-align: center;">MultiDiffusion [BarTal et al. 2023] </th>
+                      <th style="font-size: 16px; text-align: center;">ScaleCrafter [Jin et al. 2023] </th>
+                      <tr>
+                        <td><img src="./static/images/multidif.png" alt="图片" style="height: 350px;">
+                        </td> 
+                        <td><img src="./static/images/scalecrafter (2).png" alt="图片" style="height: 350px;">
+                        </td>
+                      </tr>
+                      <th style="font-size: 16px; text-align: center;">DemoFusion [Du et al. 2024] </th> 
+                      <th style="font-size: 16px; text-align: center;">HiPrompt </th>
+                      <tr>
+                        <td><img src="./static/images/demofusion (2).png" alt="图片" style="height: 350px;">
+                        </td> 
+                        <td><img src="./static/images/HiPrompt (2).png" alt="图片" style="height: 350px;">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th colspan="5" style="text-align: center;">
+                          <p> "A cute and adorable fluffy puppy wearing a witch hat in a
+                            halloween autumn evening forest, falling autumn leaves,
+                            brown acorns on the ground, halloween pumpkins spiderwebs, bats, a witch’s broom.
+                            "</p>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="vid-txt">
+                  <table  style="border-collapse: separate; border-spacing: 0px 10px;">
+                    <tbody>
+                      <th style="font-size: 16px; text-align: center;">MultiDiffusion [BarTal et al. 2023]  </th> <td>&nbsp;</td>
+                      <th style="font-size: 16px; text-align: center;">ScaleCrafter [Jin et al. 2023] </th> <td>&nbsp;</td>
+                      <tr>
+                        <td><img src="./static/images/multidif_ballet (3).png" alt="图片" style="height: 350px;">
+                        </td> <td>&nbsp;&nbsp;</td>
+                        <td><img src="./static/images/scalecrafter_ballet (2).png" alt="图片" style="height: 350px;">
+                        </td><td>&nbsp;&nbsp;</td>
+                      </tr>
+                      <th style="font-size: 16px; text-align: center;">DemoFusion [Du et al. 2024]  </th> <td>&nbsp;</td>
+                      <th style="font-size: 16px; text-align: center;">HiPrompt </th>
+                      <tr>
+                        <td><img src="./static/images/demo_ballet (2).png" alt="图片" style="height: 350px;">
+                        </td><td>&nbsp;&nbsp;</td>
+                        <td><img src="./static/images/ous_ballet (2).png" alt="图片" style="height: 350px;">
+                        </td>
+                      </tr>
+                      <tr>
+                        <th colspan="5" style="text-align: center;">
+                          <p> "In a spacious loft, a dancer practices ballet moves in
+                            front of a large mirror, with sunlight streaming through
+                            the windows."</p>
+                        </th>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div> -->
+
+        </div>
+        <p><br></p>
+      </div>
+    </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="content has-text-justified">
+      <h3 class="title is-4">
+        <p>More Samples at Various Resolutions</p>
+      </h3>
+      <div id="carousel" class="carousel is-max-desktop">
+        <div class="img-txt">
+          <p>2048×2048</p>
+          <img src="./static/images/img_2048_fantasy.jpg">
+          <p><i>"Ethereal fantasy concept art of an elf, magnificent, celestial, ethereal, painterly, epic, majestic, magical, fantasy
+            art, cover art, dreamy."</i></p>
+        </div>
+        <div class="img-txt">
+          <p>4096×4096</p>
+          <img src="./static/images/image_cyber_dog.png">
+          <p><i>"A loyal robotic dog with sleek, cyber-enhanced features standing guard beside its owner in a neon-lit cyberpunk city, bond depicted amidst a chaotic megacity at dusk, painted by Hajime Sorayama and Greg Rutkowski, sharp details and dynamic lighting."</i></p>
+        </div>
+        <div class="img-txt">
+          <p>2048×4096</p>
+          <img src="./static/images/img_4096_2048_rabbit.jpg">
+          <p><i> "A pair of cuddly rabbits, one white with floppy ears and the other brown with a twitching nose, snuggling together in a cozy hutch filled with straw."</i></p>
+        </div>
+        <div class="img-txt">
+          <p>4096×4096</p>
+          <img src="./static/images/img_4096_girl_color.jpg">
+          <p><i>"Beautiful angle view of Species woman individual from another planet with multicolored hair, beautiful colorful eyes, run in autumn garden, breeze at dawn, alcohol ink painting, psychedelic art by Ross Tran, Antonio J. Manzanedo, Tom Bagshaw, mandy disher, cinematic, 32k, stills from Steven Spielberg epic film, clear focus, hyperrealistic repin artstation painting, detailed character design concept art, matte painting."</i></p>
+        </div>
+        <div class="img-txt">
+          <p>4096×4096</p>
+          <img src="./static/images/img_4096_fox.jpg">
+          <p><i>"Cute foxy magic harry potter style smiling funny comical
+            set in hogwarts caricutre style close up, intricate, magical, volumetric lighting, beautiful masterpiece, rich in
+            deep colors, sharp focus, ultra detailed, trending on artstation, studio photos, cinematic lighting, fantastic view,
+            hyperrealistic, 4K 3D, high definition."</i></p>
+        </div>
+        <div class="img-txt">
+          <p>4096×4096</p>
+          <img src="./static/images/4k_scene.png">
+          <p><i>"A serene mountain landscape with towering snow-capped peaks, a crystal-clear blue lake reflecting the mountains, dense pine forests, and a vibrant orange sunrise illuminating the sky."</i></p>
+        </div>
+        <div class="img-txt">
+          <p>4096×4096</p>
+          <img src="./static/images/img_4096_lion.jpg">
+          <p><i>"A beautiful photo of an lion that got lost in the amazon rainforest, rain, mist, 8k, sharp intricate details, masterpiece, imaginative, raytracing, octane render, studio lighting, professionally shot nature photo, godrays, hyperrealistic, ultra high quality, realism, wet, dripping water, wandering through the undergrowth"</i></p>
+        </div>
+        <div class="img-txt">
+          <p>4096×4096</p>
+          <img src="./static/images/img_4096_temple.jpg">
+          <p><i>"Spectacular Tiny World in the Transparent Jar On the
+            Table, interior of the Great Hall, Elaborate, Carved Architecture, Anatomy, Symetrical, Geometric and Parameteric Details, Precision Flat line Details, Pattern, Dark
+            fantasy, Dark errie mood and ineffably mysterious mood,
+            Technical design, Intricate Ultra Detail, Ornate Detail,
+            Stylized and Futuristic and Biomorphic Details, Architectural Concept, Low contrast Details, Cinematic Lighting, 8k, by moebius, Fullshot, Epic, Fullshot, Octane render, Unreal ,Photorealistic, Hyperrealism.
+            "</i></p>
+        </div>
+        <div class="img-txt">
+          <p>4096×4096</p>
+          <img src="./static/images/img_4096_panda.jpg">
+          <p><i>"Close up illustration of a cybernetic panda in cyberpunk
+            room typing, technology, neon, futuristic, sci-fi, electro,
+            neon, science fiction, maximum details, fine art, 4k, highres, unforgettable."</i></p>
+        </div>
+        <div class="img-txt">
+          <p>3072×3072</p>
+          <img src="./static/images/3k_woman.png">
+          <p><i>"Portrait of a young woman with a serene expression and
+            delicate features. Her light brown hair is styled into a
+            loose braid over one shoulder, and she wears a blue
+            headband with orange floral patterns. She has clear, luminous skin and soft pale blue eyes that convey a gentle
+            confidence. Her attire is casually elegant, with a relaxed
+            blue denim garment. The lighting is soft and natural, enhancing the warmth and inviting quality of the portrait."</i></p>
+        </div>
+        <div class="img-txt">
+          <p>4096×4096</p>
+          <img src="./static/images/4k_forest.png">
+          <p><i>"Primitive forest, towering trees, sunlight falling, vivid colors."</i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+    @misc{kim2024diffusehightrainingfreeprogressivehighresolution,
+        title={DiffuseHigh: Training-free Progressive High-Resolution Image Synthesis through Structure Guidance}, 
+        author={Younghyun Kim and Geunmin Hwang and Eunbyung Park},
+        year={2024},
+        eprint={2406.18459},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV},
+        url={https://arxiv.org/abs/2406.18459}, 
+      }
+    </code></pre>
+  </div>
+</section> -->
+
+  <!-- <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://arxiv.org/abs/2406.18459">
+          <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg=""><path fill="currentColor" d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z"></path></svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+        <!-- </a>
+        <a class="icon-link" href="https://github.com/yhyun225/DiffuseHigh" disabled="">
+          <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg=""><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+        <!-- </a> --> 
+      <!-- </div> -->
+      <!-- <div class="content has-text-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website borrowed template from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. -->
+              <!-- This website is licensed under a <a rel="license"
+              href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+<!-- --------------- original ------------------- -->
+
+<!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="content has-text-justified">
+      <h3 class="title is-4">
+        <p>Generated <font color="646EFF">4K</font> images with HiPrompt + SDXL.</p>
+      </h3>
+
+      <div id="carousel" class="carousel is-max-desktop">
+        <div class="img-txt">
+          <img src="./static/images/img_4096_bird.jpg">
+          <p><i>"A blue jay standing on a large basket of rainbow macarons."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/image_cyber_dog.png">
+          <p><i>"A loyal robotic dog with sleek, cyber-enhanced features standing guard beside its owner in a neon-lit cyberpunk city, bond depicted amidst a chaotic megacity at dusk, painted by Hajime Sorayama and Greg Rutkowski, sharp details and dynamic lighting."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/img_4096_girl_color.jpg">
+          <p><i>"Beautiful angle view of Species woman individual from another planet with multicolored hair, beautiful colorful eyes, run in autumn garden, breeze at dawn, alcohol ink painting, psychedelic art by Ross Tran, Antonio J. Manzanedo, Tom Bagshaw, mandy disher, cinematic, 32k, stills from Steven Spielberg epic film, clear focus, hyperrealistic repin artstation painting, detailed character design concept art, matte painting."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/img_4096_fox.jpg">
+          <p><i>"Cute foxy magic harry potter style smiling funny comical
+            set in hogwarts caricutre style close up, intricate, magical, volumetric lighting, beautiful masterpiece, rich in
+            deep colors, sharp focus, ultra detailed, trending on artstation, studio photos, cinematic lighting, fantastic view,
+            hyperrealistic, 4K 3D, high definition."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/4k_scene.png">
+          <p><i>"A serene mountain landscape with towering snow-capped peaks, a crystal-clear blue lake reflecting the mountains, dense pine forests, and a vibrant orange sunrise illuminating the sky."</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/img_4096_lion.jpg">
+          <p><i>"A beautiful photo of an lion that got lost in the amazon rainforest, rain, mist, 8k, sharp intricate details, masterpiece, imaginative, raytracing, octane render, studio lighting, professionally shot nature photo, godrays, hyperrealistic, ultra high quality, realism, wet, dripping water, wandering through the undergrowth"</i></p>
+        </div>
+        <div class="img-txt">
+          <img src="./static/images/4k_ship_sea.png">
+          <p><i>"Pirate ship trapped in a cosmic maelstrom nebula, rendered in cosmic beach whirlpool engine, volumetric
+            lighting, spectacular, ambient lights, light pollution, cinematic atmosphere, art nouveau style, illustration art artwork by SenseiJaye, intricate detail.
+            "</i></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- new -->
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                      This website is licensed under a <a rel="license"
+                      href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                      Commons Attribution-ShareAlike 4.0 International License</a>.
+                      The interactive comparison is adapted from <a href="https://grail.cs.washington.edu/projects/background-matting-v2/#/">Background Matting v2</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+</body></html>
