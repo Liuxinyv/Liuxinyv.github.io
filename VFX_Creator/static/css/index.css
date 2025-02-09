@@ -155,3 +155,57 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+.video-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.video-slider video {
+  width: calc(100% / 3);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.btn {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.pagination-dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #555;
+}
